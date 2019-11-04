@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -40,6 +41,29 @@ class UserController extends Controller
                 'result' => [
                     'users' => Cache::get('app_user_list'),
                     'count' => count(Cache::get('app_user_list')),
+                ]
+            ], 200);
+    }
+
+    public function user(int $id)
+    {
+        $user = User::find($id);
+
+        if (!$user){
+            return response()
+                ->json([
+                    'status' => 'failure',
+                    'code' => 'not_found',
+                    'message' => 'User with id ' . $id . ' not found.',
+                ], 404);
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'message' => 'ok',
+                'result' => [
+                    'user' => $user,
                 ]
             ], 200);
     }

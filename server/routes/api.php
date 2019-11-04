@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Http\Resources\User as UserResource;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +14,8 @@ use App\Http\Resources\User as UserResource;
 |
 */
 
-// Users
-Route::get('/users', 'UserController@users');
+// User list
+Route::get('/users', 'UserController@users')->name('app_user_lis');
+
+// Single user
+Route::get('/user/{id}', 'UserController@user')->name('app_single_user');
