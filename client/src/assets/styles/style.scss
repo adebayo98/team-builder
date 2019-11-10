@@ -8,7 +8,11 @@
 @import 'layout/btn';
 @import 'layout/text';
 
-@import 'components/header-1';
-@import 'components/header-2';
+@import 'components/ui/inputText';
 
+@import 'components/profileHeader';
+@import 'components/headerTop';
+@import 'components/headerBottom';
+
+@import 'views/homeView';
 @import 'views/profile';
