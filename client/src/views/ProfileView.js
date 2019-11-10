@@ -11,9 +11,11 @@ class ProfileView extends React.Component {
             editing: false,
             maxCharResume: 150,
             charLeft: 150,
+            addCompetence: false,
         }
         this.editClick = this.editClick.bind(this);
         this.charChange = this.charChange.bind(this);
+        this.addCompetence = this.addCompetence.bind(this);
     }
 
     charChange(event){
@@ -31,15 +33,32 @@ class ProfileView extends React.Component {
     }
 
     editClick(){
-
         this.setState(state => ({
             editing: !state.editing
         }));
     }
 
+
+
+    addCompetence(){
+        console.log('salut')
+        this.setState({
+            addCompetence: true,
+        });    
+    }
+
     render(){
         return(
+            
             <div className={'profile-view'}>
+                { this.state.addCompetence ?
+                    <div>
+                        <div className="overlay"></div>
+                        <div className="competences-popup">
+                        </div>
+                    </div>
+                : null
+                }
                 <div className="profile-name">
     
                     <h1 className="ta-c title-lg">Nathan Colin</h1>
@@ -129,8 +148,17 @@ class ProfileView extends React.Component {
                         </div>
                     </section>
     
-                    <section className="competences">
-                        <div className="title-md">Competences</div>
+                    <section className="competences mt-md">
+                        <div className="container">
+                            <div className="row">
+                                <div className="title-md">Competences</div>
+                            </div>
+                            <div className="row">
+                                <btn onClick={this.addCompetence} className="competences-item new">
+                                    <img src="/images/icons/add.svg" alt=""/>
+                                </btn>
+                            </div>
+                        </div>
                     </section>
     
                 </div>
