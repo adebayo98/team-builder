@@ -1,3 +1,7 @@
+.edit-profile{
+    cursor: pointer;
+}
+
 .profile-image{
     width: 117px;
     height: 117px;
@@ -7,4 +11,67 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+form{
+
+    .label{
+        color: $light-grey;
+
+        margin-bottom: 5px;
+
+        display: block;
+    }
+
+    .input-custom, .textarea{
+        pointer-events: none;
+
+    }
+
+    .input-custom{
+
+        width: 100%;
+
+        margin-bottom: 15px;
+
+        border: 0;
+        border-radius: 0;
+
+        padding: 5px 0;
+    }
+
+    .chars-left{
+        display: none;
+    }
+
+    .textarea{
+        width: calc(100% - 20px);
+
+        resize: none;
+
+        background: $very-light-grey;
+        border: 1px solid $grey;
+
+        min-height: 50px;
+
+        padding: 10px;
+    }
+
+    &.editing{
+        .input-custom, .textarea{
+            pointer-events: all;
+
+            &:focus{
+                outline: none;
+            }
+        }
+
+        .chars-left{
+            display: block;
+        }
+
+        .input-custom{
+            border-bottom: 1px solid $black;
+        }
+    }
 }

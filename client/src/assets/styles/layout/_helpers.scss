@@ -20,9 +20,18 @@
 .jc-around{
     justify-content: space-around;
 }
+.jc-end{
+    justify-content: flex-end;
+}
 
+.mt-lg{
+    margin-top: 60px;
+}
 .mt-md{
     margin-top: 30px;
+}
+.mt-sm{
+    margin-top: 15px;
 }
 .ml-xs{
     margin-left: 5px;
