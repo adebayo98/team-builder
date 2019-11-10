@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import './assets/styles/style.scss';
 /* VIEWS */
 
-import HomeView from './views/HomeView';
+// import HomeView from './views/HomeView';
+import ProfileView from './views/ProfileView';
+
 
 class App extends React.Component {
 
@@ -17,7 +19,8 @@ class App extends React.Component {
       return(
           <Router>
               <Route exact path="/">
-                <HomeView />
+                {/* <HomeView /> */}
+                <ProfileView />
               </Route>
           </Router>
       );
