@@ -8,6 +8,7 @@
 
     .home-right{
         flex: 2;
+        flex-direction: column;
         background-color: $grey;
     }
 }

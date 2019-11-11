@@ -19,11 +19,15 @@ const HomeView = () => {
                 <ProfileCard />
                 <ProfileCard />
             </div>
-            <div className={'home-right'}>
+            <div className={'home-right container-fluid d-f'}>
                 <img className={'home-right__logo'} src={'/images/logo-3-blanc.svg'} alt={'Logo Hetic'} />
                 <h2>Connexion</h2>
-                <InputEmail />
-                <InputPassword />
+                <InputEmail 
+                    label="Email*"
+                />
+                <InputPassword 
+                    label="Mot de passe*"
+                />
                 <ButtonComponent
                     label="Connexion"
                 />
