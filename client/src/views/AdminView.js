@@ -14,7 +14,12 @@ const AdminView = () => {
                 title='Team builder'
             />
             <section className={'admin-content container-fluid'}>
-                <ProfileCard />
+                <ProfileCard 
+                    class="web3" 
+                    img =""
+                    name="Dimitri"
+                    job="Dév"
+                />
             </section>
         </div>
     );

@@ -10,14 +10,25 @@ import ButtonComponent from '../components/ui/ButtonComponent';
 const HomeView = () => {
     return(
         <div className={'home-view d-f'}>
-            <div className={'home-left d-f'}>
-                <ProfileCard 
+            <div className={'home-left container-fluid d-f'}>
+                <ProfileCard
+                    class="web3" 
                     img =""
                     name="Dimitri"
                     job="Dév"
                 />
-                <ProfileCard />
-                <ProfileCard />
+                <ProfileCard
+                    class="web3" 
+                    img =""
+                    name="Dimitri"
+                    job="Dév"
+                />
+                <ProfileCard
+                    class="web3" 
+                    img =""
+                    name="Dimitri"
+                    job="Dév"
+                />
             </div>
             <div className={'home-right container-fluid d-f'}>
                 <img className={'home-right__logo'} src={'/images/logo-3-blanc.svg'} alt={'Logo Hetic'} />

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import ProfilePic from '../assets/img/profile-pic.jpg';
+
 class ProfileCard extends Component {
 
     constructor(props) {
@@ -12,9 +14,9 @@ class ProfileCard extends Component {
     render() {
 
         return(
-            <div className={'profile-card'}>
+            <div className={'profile-card d-f'}>
                 <p className={'profile-card__class'}>{this.props.class}</p>
-                <img src={this.props.img} alt={this.props.name} className={'profile-card__img'}></img>
+                <div className={'profile-card__img'} style={{backgroundImage: `url(${ProfilePic}`}}></div> 
                 <p className={'profile-card__name'}>{this.props.name}</p>
                 <p className={'profile-card__job'}>{this.props.job}</p>
             </div>

@@ -4,6 +4,22 @@
     .home-left{
         flex: 2;
         flex-direction: column;
+        justify-content: space-between;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        .profile-card:nth-child(2n+1){
+            align-self: flex-end;
+        }
+
+        .profile-card:nth-child(2n){
+            width: 250px;
+            height: 280px;
+        }
+
+        .profile-card:last-child{
+            margin-right: 40px;
+        }
     }
 
     .home-right{

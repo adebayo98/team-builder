@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 
+/* COMPONENTS */
+
+import SmallButton from './ui/SmallButton';
+
 class HeaderBottom extends Component {
 
     constructor(props) {
@@ -21,7 +25,9 @@ class HeaderBottom extends Component {
                         <li>INTERVENANTS</li>
                     </ul>
 
-                    <button>+</button>
+                    <SmallButton 
+                        buttonReturn=""
+                    />
                     <button>+</button>
                 </div>
             </div>
