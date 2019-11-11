@@ -24,11 +24,12 @@ const HomeView = () => {
                 <h2>Connexion</h2>
                 <InputEmail />
                 <InputPassword />
-                <ButtonComponent 
+                <ButtonComponent
                     label="Connexion"
                 />
                 <a href="">Impossible de se connecter</a>
-                <ButtonComponent 
+                <ButtonComponent
+                    buttonSecond="Yes"
                     label="Inscription"
                 />
             </div>
