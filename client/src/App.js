@@ -5,6 +5,7 @@ import './assets/styles/style.scss';
 /* VIEWS */
 
 import HomeView from './views/HomeView';
+import AdminView from './views/AdminView';
 import ProfileView from './views/ProfileView';
 
 
@@ -21,6 +22,9 @@ class App extends React.Component {
           <Router>
               <Route exact path="/">
                 <HomeView />
+              </Route>
+              <Route exact path="/admin">
+                <AdminView />
               </Route>
               <Route exact path="/profile">
                 <ProfileView />

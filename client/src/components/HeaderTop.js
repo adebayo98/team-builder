@@ -15,9 +15,9 @@ class HeaderTop extends Component {
     render() {
 
         return(
-            <div className={'header-top'}>
+            <div className={'header-top d-f container-fluid'}>
                 <a href={'/'} title={'Hetic'}>
-                    <img className={'header-top__logo'} src={'/images/logo-3.svg'} alt={'Logo Hetic'} />
+                    <img className={'header-top__logo'} src={'/images/logo-3-blanc.svg'} alt={'Logo Hetic'} />
                 </a>
                 <InputText />
                 <ProfileHeader />

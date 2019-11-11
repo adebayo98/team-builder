@@ -12,7 +12,7 @@ class HeaderBottom extends Component {
     render() {
 
         return(
-            <div className={'header-bottom'}>
+            <div className={'header-bottom d-f container-fluid'}>
                 <h1>{this.props.title}</h1>
             </div>
         );
