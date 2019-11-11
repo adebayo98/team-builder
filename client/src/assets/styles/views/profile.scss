@@ -56,24 +56,6 @@ form{
 
         padding: 10px;
     }
-
-    &.editing{
-        .input-custom, .textarea{
-            pointer-events: all;
-
-            &:focus{
-                outline: none;
-            }
-        }
-
-        .chars-left{
-            display: block;
-        }
-
-        .input-custom{
-            border-bottom: 1px solid $black;
-        }
-    }
 }
 
 .competences-item{
@@ -81,6 +63,8 @@ form{
     height: 159px;
 
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     background: $very-light-grey;
 
@@ -89,6 +73,17 @@ form{
     box-shadow: 0px 4px 14px rgba(169, 169, 169, 0.25);
 
     margin-top: 15px;
+    margin-right: 15px;
+
+    .name{
+        font-size: 16px;
+        font-weight: 700;
+
+        margin-bottom: 5px;
+    }
+    .type{
+        font-size: 12px;
+    }
 
     &.new{
         justify-content: center;
@@ -99,6 +94,8 @@ form{
         box-shadow: none;
 
         cursor: pointer;
+
+        display: none;
     }
 }
 
@@ -116,12 +113,10 @@ form{
     left: 0;
 }
 .competences-popup{
-
-
     z-index: 1;
 
-    width: 80%;
-    height: 40%;
+    padding: 20px;
+    border-radius: 8px;
 
     position: fixed;
 
@@ -130,5 +125,77 @@ form{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    .label{
+        color: $black;
+    }
+
+    .input-custom-competence{
+
+        &:focus{
+            outline: none;
+        }
+
+        border-bottom: 1px solid $black !important;
+
+        border: 0;
+        border-radius: 0;
+
+        margin-bottom: 15px;
+
+        padding: 5px 0;
+
+        width: 100%;
+    }
+
+    .select-custom-competence{
+
+        &:focus{
+            outline: none;
+        }
+
+        width: 100%;
+    }
+    .create-competence-btn{
+
+        margin-left: 10px; 
+    }
 }
 
+.validate{
+    display: none;
+}
+
+
+/*
+|
+| EDITING
+|
+*/
+
+.editing{
+    .input-custom, .textarea{
+        pointer-events: all;
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    .chars-left{
+        display: block;
+    }
+
+    .input-custom{
+        border-bottom: 1px solid $black;
+    }
+
+    .competences-item{
+        &.new{
+            display: block;
+        }
+    }
+    .validate{
+        display: block;
+    }
+}
