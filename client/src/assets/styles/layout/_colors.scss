@@ -1,0 +1,17 @@
+$green:  #00FF97;
+$green-hover: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #00FF97;
+$green-click: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #00FF97;
+
+$orange: #EF5D36;
+
+$very-light-grey: #F9F9F9;
+$light-grey: #BDBDBD;
+$grey: #343A40;
+$grey-hover: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), #343A40;
+$dark-grey: #343A40;
+
+$black: #000;
+
+.c-green{
+    color: $green;
+}

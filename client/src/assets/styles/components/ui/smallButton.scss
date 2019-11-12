@@ -1,0 +1,13 @@
+.small-button{
+    background: $green;
+    border-radius: 8px;
+    padding: 3px;
+
+    &:hover{
+        background: $green-hover;
+    }
+
+    img {
+        width: 20px;
+    }
+}
