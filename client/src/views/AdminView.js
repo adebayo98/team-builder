@@ -13,6 +13,7 @@ const AdminView = () => {
                 <HeaderTop />
                 <HeaderBottom 
                     title='Team builder'
+                    menu='yes'
                 />
             </section>
             <section className={'admin-content container-fluid'}>

@@ -20,6 +20,7 @@ class HeaderBottom extends Component {
         return(
             <div className={'header-bottom d-f container-fluid'}>
                 <h1 className={'header-bottom__title'}>{this.props.title}</h1>
+                { this.props.menu ?
                 <div className={'header-bottom__content d-f'}>
                     <ul className={'d-f'}>
                         <li>ALL</li>
@@ -36,6 +37,7 @@ class HeaderBottom extends Component {
                         </button>
                     </div>
                 </div>
+                :null }
             </div>
         );
     }

@@ -45,7 +45,7 @@ const HomeView = () => {
                     />
                     <a href="" className={'home-right__problem'}>Impossible de se connecter</a>
                     <ButtonComponent
-                        buttonSecond="Yes"
+                        buttonSecond="true"
                         label="Inscription"
                     />
                 </form>

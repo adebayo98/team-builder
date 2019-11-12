@@ -7,6 +7,7 @@ import './assets/styles/style.scss';
 import HomeView from './views/HomeView';
 import AdminView from './views/AdminView';
 import ProfileView from './views/ProfileView';
+import SignInView from './views/SignInView';
 
 
 class App extends React.Component {
@@ -28,6 +29,9 @@ class App extends React.Component {
               </Route>
               <Route exact path="/profile">
                 <ProfileView />
+              </Route>
+              <Route exact path="/signin">
+                <SignInView />
               </Route>
           </Router>
       );
