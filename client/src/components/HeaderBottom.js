@@ -17,18 +17,22 @@ class HeaderBottom extends Component {
 
         return(
             <div className={'header-bottom d-f container-fluid'}>
-                <h1>{this.props.title}</h1>
-                <div className={'header-bottom__content'}>
-                    <ul className={''}>
-                        <li>All</li>
+                <h1 className={'header-bottom__title'}>{this.props.title}</h1>
+                <div className={'header-bottom__content d-f'}>
+                    <ul className={'d-f'}>
+                        <li>ALL</li>
                         <li>ÉLÈVES</li>
                         <li>INTERVENANTS</li>
                     </ul>
 
-                    <SmallButton 
-                        buttonReturn=""
-                    />
-                    <button>+</button>
+                    <div className={'buttons'}>
+                        <SmallButton 
+                            buttonReturn=""
+                        />
+                        <button className={'button-second'}>
+                            <img src="../assets/img/icons/filter.svg" />
+                        </button>
+                    </div>
                 </div>
             </div>
         );
