@@ -45,6 +45,12 @@ class UserController extends Controller
             ], 200);
     }
 
+    /**
+     * Get an user
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function user(int $id)
     {
         $user = User::find($id);
