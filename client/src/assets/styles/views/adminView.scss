@@ -1,3 +1,27 @@
 .admin-view{
 
+    .admin-header{
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .admin-content{
+        margin-top: 218px;
+
+        &__number{
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        &__cards{
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+
+            .profile-card{
+                margin-top: 24px;
+                margin-right: 32px;
+            }
+        }
+    }
 }

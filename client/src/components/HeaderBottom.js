@@ -4,6 +4,8 @@ import React, {Component} from 'react';
 
 import SmallButton from './ui/SmallButton';
 
+import Filter from '../assets/img/icons/filter.svg';
+
 class HeaderBottom extends Component {
 
     constructor(props) {
@@ -30,7 +32,7 @@ class HeaderBottom extends Component {
                             buttonReturn=""
                         />
                         <button className={'button-second'}>
-                            <img src="../assets/img/icons/filter.svg" />
+                            <img src={Filter} />
                         </button>
                     </div>
                 </div>

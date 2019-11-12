@@ -16,10 +16,12 @@ class HeaderTop extends Component {
 
         return(
             <div className={'header-top d-f container-fluid'}>
-                <a href={'/'} title={'Hetic'}>
-                    <img className={'header-top__logo'} src={'/images/logo-3-blanc.svg'} alt={'Logo Hetic'} />
+                <a className={'header-top__logo'} href={'/'}>
+                    <img src={'/images/logo-3-blanc.svg'} alt={'Logo Hetic'} />
                 </a>
-                <InputText />
+                <InputText 
+                    placeholder='Rechercher un utilisateur'
+                />
                 <ProfileHeader />
             </div>
         );
