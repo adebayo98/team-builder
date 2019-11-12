@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './assets/styles/style.scss';
+
 /* VIEWS */
 
-// import HomeView from './views/HomeView';
+import HomeView from './views/HomeView';
+import AdminView from './views/AdminView';
 import ProfileView from './views/ProfileView';
 
 
@@ -19,7 +21,12 @@ class App extends React.Component {
       return(
           <Router>
               <Route exact path="/">
-                {/* <HomeView /> */}
+                <HomeView />
+              </Route>
+              <Route exact path="/admin">
+                <AdminView />
+              </Route>
+              <Route exact path="/profile">
                 <ProfileView />
               </Route>
           </Router>
