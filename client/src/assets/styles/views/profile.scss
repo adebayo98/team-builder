@@ -174,6 +174,31 @@ form{
 */
 
 .editing{
+
+    .new-profile-image{
+        height: 117px;
+        width: 117px;
+
+        position: relative;
+
+        cursor: pointer;
+
+        background: $dark-grey;
+        border-radius: 8px;
+
+        input{
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            top: 0;
+            left: 0;
+
+            opacity: 0;
+        }
+    }
+
     .input-custom, .textarea{
         pointer-events: all;
 
@@ -192,7 +217,7 @@ form{
 
     .competences-item{
         &.new{
-            display: block;
+            display: flex;
         }
     }
     .validate{

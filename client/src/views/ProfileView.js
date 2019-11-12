@@ -28,6 +28,8 @@ class ProfileView extends React.Component {
             ],
 
         }
+        this.fileInput = React.createRef();
+
         this.editClick = this.editClick.bind(this);
         this.charChange = this.charChange.bind(this);
         this.addCompetence = this.addCompetence.bind(this);
@@ -54,6 +56,7 @@ class ProfileView extends React.Component {
 
     //editable or not
     editClick(){
+        console.log('eddditititititit')
         this.setState(state => ({
             editing: !state.editing
         }));
@@ -61,6 +64,8 @@ class ProfileView extends React.Component {
 
     //popup or not
     addCompetence(){
+        console.log('add competence')
+
         this.setState(state => ({
             addCompetence: !state.addCompetence
         }));
@@ -68,6 +73,7 @@ class ProfileView extends React.Component {
 
     //create new competance and add it in state
     createCompetence(event){
+        console.log('create competence')
         event.preventDefault();
 
         var newCompetence = {
@@ -83,7 +89,7 @@ class ProfileView extends React.Component {
     saveProfile(event){
         event.preventDefault();
 
-        console.log(event.target.persoMail.value, event.target.mail.value, event.target.phone.value, event.target.job.value)
+        console.log('save')
 
         this.setState({
             mail: event.target.mail.value,
@@ -142,14 +148,25 @@ class ProfileView extends React.Component {
                             <div className="row ai-center jc-between mt-md">
                                 <div className="title-md">Personal informations</div>
                                 { this.state.editing ? null : 
-                                <button onClick={this.editClick} className="edit-profile c-green d-f ai-center">Edit profil <img className="ml-xs" src='/images/icons/edit.svg'/></button>
+                                    <button onClick={this.editClick} className="edit-profile c-green d-f ai-center">Edit profil <img className="ml-xs" src='/images/icons/edit.svg'/></button>
                                 }
                             </div>
         
-                            <div className="row mt-md">
-                                <div className="profile-image" style={{backgroundImage: `url(${ProfilePic}`}}>
-                                </div> 
-                            </div>
+
+                            { this.state.editing ? 
+                                <button className="new-profile-image mt-md">
+                                    <img src="/images/icons/add.svg" alt=""/>
+                                    <input type="file" ref={this.fileInput} name="image"/>
+                                </button>
+                                
+                                : 
+                                <div className="row mt-md">
+                                    <div className="profile-image" style={{backgroundImage: `url(${ProfilePic}`}}>
+                                    </div> 
+                                </div>    
+                            }
+                            
+
                         </div>
         
                         <section className="infos mt-md">
@@ -221,7 +238,7 @@ class ProfileView extends React.Component {
                                             <div className="label title-xs">Resume</div>
                                             <div className="label title-xs chars-left">{ this.state.charLeft } characters left</div>
                                         </div>
-                                        <textarea className="textarea" name="resume" onChange={this.charChange}>
+                                        <textarea className="textarea" placeholder="About you.." name="resume" onChange={this.charChange}>
                                         </textarea>                                    
                                     </div>
                                 </div>
@@ -234,9 +251,9 @@ class ProfileView extends React.Component {
                                     <div className="title-md">Competences</div>
                                 </div>
                                 <div className="row">
-                                    <button onClick={this.addCompetence} className="competences-item new">
+                                    <div onClick={this.addCompetence} className="competences-item new">
                                         <img src="/images/icons/add.svg" alt=""/>
-                                    </button>
+                                    </div>
                                     
                                     {this.state.competences.map((value, index) => {
                                         return <div key={index} className="competences-item">
@@ -254,7 +271,7 @@ class ProfileView extends React.Component {
                         <div className="validate mt-lg">
                             <div className="container">
                                 <div className="row jc-between">
-                                    <button onClick={this.editClick} className="btn btn-empty">Cancel</button>
+                                    <div onClick={this.editClick} className="btn btn-empty">Cancel</div>
                                     <button type="submit" className="btn btn-empty">Save</button>
                                 </div>
                             </div>
