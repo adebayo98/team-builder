@@ -58,6 +58,11 @@ class UserController extends Controller
             ], 200);
     }
 
+    /**
+     * Get all users
+     *
+     * @return mixed
+     */
     public function usersCache()
     {
         if (!Cache::has('app_user_list')){
@@ -109,7 +114,6 @@ class UserController extends Controller
                 ]
             ], 200);
     }
-
 
 }
 
