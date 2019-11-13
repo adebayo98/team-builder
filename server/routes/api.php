@@ -15,10 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 // User list
-Route::get('/users/filter', 'UserController@users')->name('app_user_filter');
+Route::get('/users/filter', 'UserController@users')
+    ->name('app_user_filter');
 
 // User list all
-Route::get('/users', 'UserController@usersCache')->name('app_user_list');
+Route::get('/users', 'UserController@usersCache')
+    ->name('app_user_list');
 
 // Single user
-Route::get('/user/{id}', 'UserController@user')->name('app_single_user');
+Route::get('/user/{id}', 'UserController@user')
+    ->name('app_single_user');
+
+// Skills
+Route::get('/skills', 'SkillController@skills')
+    ->name('app_skill_list');

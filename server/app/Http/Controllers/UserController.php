@@ -43,7 +43,7 @@ class UserController extends Controller
                 return $query;
             })
             ->orderBy('users.first_name', 'asc')
-            ->limit()
+            ->limit(100)
             ->get();
 
         // Return response
@@ -72,7 +72,7 @@ class UserController extends Controller
                 ->select('users.id as id','users.photo_url', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
                 ->orderBy('users.first_name', 'asc')
                 ->get();
-            Cache::put('app_user_list', $users, now()->addMinutes(10));
+            Cache::put('app_user_list', $users, now()->addMinutes(60 * 24));
         }
 
         return response()
