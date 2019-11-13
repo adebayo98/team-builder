@@ -10,7 +10,10 @@
 * GET {domain}/api/skills
 
 ##### Demander la liste des types de compétences
-* GET {domain}/api/skills
+* GET {domain}/api/skill/types
+
+##### Demander la liste des types de compétences
+* GET {domain}/api/skill/notes
 
 ##### Demander la liste utilisateurs
 * GET {domain}/api/users
