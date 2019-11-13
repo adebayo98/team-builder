@@ -6,7 +6,10 @@
 ##### Demander la liste formations
 * GET {domain}/api/formations
 
-##### Demander la liste des skills
+##### Demander la liste des types de compétences
+* GET {domain}/api/skills
+
+##### Demander la liste des types de compétences
 * GET {domain}/api/skills
 
 ##### Demander la liste utilisateurs
@@ -15,8 +18,9 @@
 ##### Demander un utilisateur
 * GET {domain}/api/user/{user.id}
 
+##### Demander les compétences d'un utilisateur
+* GET {domain}/api/user/{user.id}/skills
+
 ##### Demander une liste filtrer
 * GET {domain}/api/users/filter
 
-##### Demander les compétences d'un utilisateur
-* GET {domain}/api/user/{user.id}/skills

@@ -38,6 +38,10 @@ Route::get('/user/{id}', 'UserController@user')
 Route::get('/skills', 'SkillController@skills')
     ->name('app_skill_list');
 
+// Skill types
+Route::get('/skill/types', 'SkillController@skillTypes')
+    ->name('app_skill_types_list');
+
 // Formations
 Route::get('/formations', 'FormationController@formations')
     ->name('app_formation_list');
