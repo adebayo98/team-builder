@@ -10,7 +10,6 @@ class InputSelect extends React.Component{
     }
 
     componentDidMount() {
-        /* Get current option */
         if (this.props.currentOption){
             this.props.options.map((option, index) => {
                 if (option.value === this.props.currentOption){
@@ -24,17 +23,12 @@ class InputSelect extends React.Component{
         }
     }
 
-    // Display or hide options
     toggleOptions = (event) => {
-        // Toggle options list
         event.currentTarget.classList.toggle('active');
     }
 
-    // Change state
     changeState = (event) => {
-        // Traced back new current option value
         this.props.onSelectChange(event.target.getAttribute('data-value'));
-        // Update set
         this.setState({currentOption: {
                 'label': event.target.innerHTML,
                 'value': event.target.getAttribute('data-value'),
@@ -43,7 +37,6 @@ class InputSelect extends React.Component{
     }
 
     render() {
-        // Build options with layout
         const options = this.props.options.map((option, index) =>
             <li key={index}
                 className={option.value === this.state.currentOption.value ? 'option-list__item current' : 'option-list__item'}
@@ -54,13 +47,10 @@ class InputSelect extends React.Component{
 
         return(
             <fieldset className={'input-select-component'}>
-                {/* Label */}
                 <label> {this.props.label} </label>
-                {/* Option List */}
                 <ul className={'option-list'} onClick={(event) => this.toggleOptions(event)}>
-                    {/* Option list current item */}
                     <li className={'option-list__item-current'} data-value={this.state.currentOption.value}> {this.state.currentOption.label} </li>
-                    {/* Option list items */}
+
                     <div className={'option-list__items'}>
                         {options}
                     </div>

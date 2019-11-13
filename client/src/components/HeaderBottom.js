@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 
 /* COMPONENTS */
 
-import SmallButton from './ui/SmallButton';
-
 import Filter from '../assets/img/icons/filter.svg';
 
 class HeaderBottom extends Component {
@@ -29,9 +27,6 @@ class HeaderBottom extends Component {
                     </ul>
 
                     <div className={'buttons'}>
-                        <SmallButton 
-                            buttonReturn=""
-                        />
                         <button className={'button-second'}>
                             <img src={Filter} />
                         </button>

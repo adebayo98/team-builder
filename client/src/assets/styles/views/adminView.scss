@@ -6,6 +6,48 @@
         width: 100%;
     }
 
+    .competences-popup{
+        z-index: 1;
+        padding: 20px;
+        border-radius: 8px;
+        position: fixed;
+        background: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .label{
+            color: $black;
+        }
+    
+        .input-custom-competence{
+            &:focus{
+                outline: none;
+            }
+    
+            border-bottom: 1px solid $black !important;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 15px;
+            padding: 5px 0;
+            width: 100%;
+        }
+    
+        .select-custom-competence{
+    
+            &:focus{
+                outline: none;
+            }
+    
+            width: 100%;
+        }
+        .create-competence-btn{
+    
+            margin-left: 10px; 
+        }
+    }
+    
+
     .admin-content{
         margin-top: 218px;
 
