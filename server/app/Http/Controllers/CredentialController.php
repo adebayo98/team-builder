@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Validator;
  */
 class CredentialController extends Controller
 {
-
     /**
      * Login a user
      *

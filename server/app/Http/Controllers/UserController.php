@@ -32,7 +32,7 @@ class UserController extends Controller
         $users = DB::table('users')
             ->join('formations', 'formations.id', '=', 'users.formation_id')
             ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
-            ->select('users.id','users.photo_url', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
+            ->select('users.id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
             ->when($promotions, function ($query, $promotions) {
                 return $query->whereIn('promotions.id', $promotions);
             })
@@ -50,7 +50,6 @@ class UserController extends Controller
                 });
             })
             ->orderBy('users.first_name', 'asc')
-            ->limit(100)
             ->get();
 
 
@@ -77,7 +76,7 @@ class UserController extends Controller
             $users = DB::table('users')
                 ->join('formations', 'formations.id', '=', 'users.formation_id')
                 ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
-                ->select('users.id as id','users.photo_url', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
+                ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
                 ->orderBy('users.first_name', 'asc')
                 ->get();
             Cache::put('app_user_list', $users, now()->addMinutes(60 * 24));
