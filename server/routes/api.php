@@ -42,6 +42,10 @@ Route::get('/skills', 'SkillController@skills')
 Route::get('/skill/types', 'SkillController@skillTypes')
     ->name('app_skill_types_list');
 
+// Skill types
+Route::get('/skill/notes', 'SkillController@skillNotes')
+    ->name('app_skill_notes_list');
+
 // Formations
 Route::get('/formations', 'FormationController@formations')
     ->name('app_formation_list');

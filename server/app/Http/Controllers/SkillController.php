@@ -67,5 +67,29 @@ class SkillController extends Controller
             ], 200);
 
     }
+
+    /**
+     * Get type of skills
+     *
+     * @return mixed
+     */
+    public function skillNotes()
+    {
+        if (!Cache::has('app_skill_notes_list')) {
+            $notes = DB::select('SELECT DISTINCT note FROM user_skill order by note asc');
+            Cache::put('app_skill_notes_list', $notes, now()->addMinutes(60 * 24));
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'message' => 'ok',
+                'result' => [
+                    'skill_notes' => Cache::get('app_skill_notes_list'),
+                    'total' => count(Cache::get('app_skill_notes_list'))
+                ]
+            ], 200);
+
+    }
 }
 
