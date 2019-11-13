@@ -11,6 +11,8 @@
 
 @import 'components/ui/smallButton';
 @import 'components/ui/buttonComponent';
+@import 'components/ui/inputTel';
+@import 'components/ui/inputSelect';
 @import 'components/ui/inputText';
 @import 'components/ui/inputEmail';
 @import 'components/ui/inputPassword';
@@ -21,5 +23,7 @@
 @import 'components/headerBottom';
 
 @import 'views/homeView';
+@import 'views/signinView';
+@import 'views/signinView-2';
 @import 'views/adminView';
 @import 'views/profile';

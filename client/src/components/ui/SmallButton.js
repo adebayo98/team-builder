@@ -7,7 +7,7 @@ const SmallButton = (props) => {
 
     return(
         <button className={'small-button'} type={'submit'}>
-            <img src={props.buttonReturn ? iconReturn : iconAdd} />
+            <img src={props.return ? iconReturn : iconAdd} />
         </button>
     );
 
