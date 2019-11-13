@@ -10,7 +10,6 @@ const InputEmail = (props) => {
                 className={'input-email-component__value'}
                 type={'text'}
                 name={props.name}
-                value={props.value != null ? props.value : ''}
                 placeholder={props.placeholder ? props.placeholder : 'email@gmail.com'}
             />
             {/* Error */}

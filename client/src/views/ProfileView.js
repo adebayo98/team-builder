@@ -1,5 +1,8 @@
 import React from 'react';
 
+import HeaderTop from '../components/HeaderTop';
+import HeaderBottom from '../components/HeaderBottom';
+
 import ProfilePic from '../assets/img/profile-pic.jpg';
 import add from '../assets/img/icons/add-green.svg'
 import edit from '../assets/img/icons/edit.svg'
@@ -105,6 +108,12 @@ class ProfileView extends React.Component {
     render(){
         return(
             <div className={'profile-view'}>
+                <section className={'profile-header'}>
+                    <HeaderTop />
+                    <HeaderBottom 
+                        title='My profile'
+                    />
+                </section>
                 { this.state.addCompetence ?
                     <div>
                         <div className="overlay"></div>
@@ -139,7 +148,7 @@ class ProfileView extends React.Component {
                 }
                 <div className={ this.state.editing ? 'editing' : null}>
                 
-                    <h1 className="ta-c title-lg">Nathan Colin</h1>
+                    <h1 className="ta-c title-lg mt-lg">Nathan Colin</h1>
                     <form onSubmit={this.saveProfile}>
                         <div className="container">
                             <div className="row ai-center jc-between mt-md">
