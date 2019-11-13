@@ -22,8 +22,8 @@ Route::get('/users/filter', 'UserController@usersFilter')
 Route::get('/users', 'UserController@users')
     ->name('app_user_list');
 
-// User list all
-Route::get('/user/login', 'UserController@login')
+// User Login
+Route::post('/user/credentials', 'CredentialController@login')
     ->name('app_user_login');
 
 // Single user

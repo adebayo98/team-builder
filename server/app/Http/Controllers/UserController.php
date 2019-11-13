@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
-
 /**
  * Class UserController
  * @package App\Http\Controllers
@@ -18,14 +17,6 @@ use Illuminate\Support\Facades\Cache;
  */
 class UserController extends Controller
 {
-    /**
-     *
-     */
-    public static function login()
-    {
-
-    }
-
     /**
      * Filter users
      *
@@ -67,7 +58,7 @@ class UserController extends Controller
         return response()
             ->json([
                 'status' => 'success',
-                'message' => 'ok',
+                'code' => '1',
                 'result' => [
                     'users' => $users,
                     'total' => count($users)
@@ -95,7 +86,7 @@ class UserController extends Controller
         return response()
             ->json([
                 'status' => 'success',
-                'message' => 'ok',
+                'code' => '1',
                 'result' => [
                     'users' => Cache::get('app_user_list'),
                     'total' => count(Cache::get('app_user_list'))
@@ -125,7 +116,7 @@ class UserController extends Controller
         return response()
             ->json([
                 'status' => 'success',
-                'message' => 'ok',
+                'code' => '1',
                 'result' => [
                     'user' => $user,
                 ]
