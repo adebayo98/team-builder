@@ -56,6 +56,6 @@ class User extends Authenticatable
      */
     public function promotion()
     {
-        return $this->belongsTo('App\Models\Promotion', 'id', 'promotion_id')->first();
+        return $this->hasOne('App\Models\Promotion', 'id', 'promotion_id')->first();
     }
 }

@@ -80,8 +80,8 @@ class UserController extends Controller
     /**
      * Get an user
      *
-     * @param int $id The user id
-     * @return mixed
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function user(int $id)
     {

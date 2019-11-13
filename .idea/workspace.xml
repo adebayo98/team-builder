@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4d5c1b1b-0cf0-461e-a401-15c1aeb170c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/seeds/UsersTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Models/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/Promotion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/User.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +114,7 @@
   </component>
   <component name="ProjectId" id="1T4fDQq8NDyBqo86fd91l9pClrP" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -145,7 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572724169660</updated>
       <workItem from="1572724175203" duration="655000" />
-      <workItem from="1573075385695" duration="11654000" />
+      <workItem from="1573075385695" duration="13430000" />
     </task>
     <servers />
   </component>
