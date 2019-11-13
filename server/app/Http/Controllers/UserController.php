@@ -54,7 +54,8 @@ class UserController extends Controller
             ->when($role, function ($query, $role){
                 return $query->whereIn('users.role', '=', $role);
             })
-            ->orderBy('users.first_name', 'asc')
+            ->inRandomOrder()
+                // ->orderBy('users.first_name', 'asc')
             ->get();
 
         // Return response
@@ -81,7 +82,8 @@ class UserController extends Controller
                 ->join('formations', 'formations.id', '=', 'users.formation_id')
                 ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
                 ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
-                ->orderBy('users.first_name', 'asc')
+                ->inRandomOrder()
+                // ->orderBy('users.first_name', 'asc')
                 ->get();
             Cache::put('app_user_list', $users, now()->addMinutes(60 * 24));
         }

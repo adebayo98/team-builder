@@ -1,17 +1,19 @@
 # Liste des routes de l'api
 
+##### Demander un jeton
+* POST {domain}/api/user/credentials
+
 ##### Demander la liste formations
-* {domain}/api/formations
+* GET {domain}/api/formations
 
 ##### Demander la liste des skills
-* {domain}/api/skills
+* GET {domain}/api/skills
 
 ##### Demander la liste utilisateurs
-* {domain}/api/users
+* GET {domain}/api/users
 
 ##### Demander un utilisateur
-* {domain}/api/user/{user.id}
+* GET {domain}/api/user/{user.id}
 
 ##### Demander une liste filtrer
-* {domain}/api/users/filter
-
+* GET {domain}/api/users/filter
