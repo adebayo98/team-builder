@@ -40,6 +40,16 @@ class ProfileView extends React.Component {
         this.saveProfile = this.saveProfile.bind(this);
     }
 
+    async componentDidMount() {
+        console.log(window.location)
+        const response = await fetch(`http://hetic.adebayo.fr/api/users`);
+        const json = await response.json();
+        this.setState({ 
+            data : json,
+            isLoading: false
+        });
+    }
+
     handleChange(){}
 
     //Count characteres left in resume
