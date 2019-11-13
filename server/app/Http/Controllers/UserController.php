@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
+
 /**
  * Class UserController
  * @package App\Http\Controllers
@@ -28,6 +29,7 @@ class UserController extends Controller
         $promotions = $request->query->get('promotions', false);
         $formations = $request->query->get('formations', false);
         $skills = $request->query->get('skills', false);
+        $role = $request->query->get('role', false);
 
         $users = DB::table('users')
             ->join('formations', 'formations.id', '=', 'users.formation_id')
@@ -49,9 +51,11 @@ class UserController extends Controller
                     });
                 });
             })
+            ->when($role, function ($query, $role){
+                return $query->whereIn('users.role', '=', $role);
+            })
             ->orderBy('users.first_name', 'asc')
             ->get();
-
 
         // Return response
         return response()
@@ -101,7 +105,25 @@ class UserController extends Controller
      */
     public function user(int $id)
     {
-        $user = User::find($id);
+        $user =  DB::table('users')
+            ->join('formations', 'formations.id', '=', 'users.formation_id')
+            ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
+            ->select(
+                'users.id',
+                'users.photo_url',
+                'users.last_name',
+                'users.first_name',
+                'users.gender',
+                'users.phone',
+                'users.email',
+                'users.personal_email',
+                'users.description',
+                'users.role',
+                'formations.code as formation',
+                'promotions.name as promotion'
+            )
+            ->where('users.id', $id)
+            ->first();
 
         if (!$user){
             return response()
