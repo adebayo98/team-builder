@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
      */
     public function __construct()
     {
-        $this->faker = Faker\Factory::create();
+        $this->faker = Faker\Factory::create('fr_FR');
     }
 
     /**
@@ -49,8 +49,8 @@ class UsersTableSeeder extends Seeder
                 'personal_email' => $user->first_name . '.' . $user->last_name . '@gmail.com',
                 'phone'          => $this->faker->phoneNumber,
                 'password'       => bcrypt('password'),
-                'description'    => $this->faker->text,
-                'roles'          => json_encode($this->faker->randomElements(self::roles, rand(1, 4))),
+                'description'    => $this->faker->realText($this->faker->numberBetween(10,20)),
+                'role'           => $this->faker->randomElement(self::roles, rand(1, 4)),
                 'is_activated'   => $this->faker->boolean(80),
                 'promotion_id'   => DB::table('promotions')->inRandomOrder()->first()->id,
                 'formation_id'   => DB::table('formations')->inRandomOrder()->first()->id,

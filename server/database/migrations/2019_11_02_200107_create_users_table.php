@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('password')->nullable();
             $table->text('description')->nullable();
-            $table->json('roles');
+            $table->string('role');
             $table->boolean('is_activated')->default(false);
             $table->date('created_at');
             $table->date('updated_at');

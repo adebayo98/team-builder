@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    echo "<center> <h1> Team builder api </h1> </center>";
 });

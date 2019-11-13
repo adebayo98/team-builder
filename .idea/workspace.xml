@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4d5c1b1b-0cf0-461e-a401-15c1aeb170c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Models/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/Promotion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/User.php" afterDir="false" />
+>>>>>>> 11cc0790a3e8f238f58512328d98efe1100b8afd
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,6 +125,10 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+<<<<<<< HEAD
+=======
+    <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> 11cc0790a3e8f238f58512328d98efe1100b8afd
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -142,8 +153,12 @@
       <option name="presentableId" value="Default" />
       <updated>1572724169660</updated>
       <workItem from="1572724175203" duration="655000" />
+<<<<<<< HEAD
       <workItem from="1573075385695" duration="338000" />
       <workItem from="1573602507218" duration="1316000" />
+=======
+      <workItem from="1573075385695" duration="13430000" />
+>>>>>>> 11cc0790a3e8f238f58512328d98efe1100b8afd
     </task>
     <servers />
   </component>

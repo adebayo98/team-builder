@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // User list
-Route::get('/users', 'UserController@users')->name('app_user_lis');
+Route::get('/users', 'UserController@users')->name('app_user_list');
 
 // Single user
 Route::get('/user/{id}', 'UserController@user')->name('app_single_user');
