@@ -19,9 +19,23 @@ use Illuminate\Support\Facades\Cache;
 class UserController extends Controller
 {
 
+    /**
+     * Get a users skills
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function userSkills(int $id)
     {
-
+        $skills = User::find($id)->skills()->get();
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'skills' => $skills->toArray()
+                ]
+            ], 200);
     }
 
     /**

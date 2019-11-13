@@ -20,6 +20,8 @@ class Skill extends Model
      */
     protected $fillable = [
         'name',
+        'icon',
+        'type',
         'description',
         'rating',
         'updated_at'
@@ -42,4 +44,12 @@ class Skill extends Model
     protected $casts = [
 
     ];
+
+    /**
+     * The users that belong to the skill.
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\Models\User','user_skill', 'role_id', 'user_id');
+    }
 }

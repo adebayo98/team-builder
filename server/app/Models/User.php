@@ -28,6 +28,7 @@ class User extends Authenticatable
         'last_name',
         'first_name',
         'gender',
+        'email',
         'personal_email',
         'phone',
         'description',
@@ -53,11 +54,13 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the promotion of user
+     * The skills that belong to the user.
      */
-    public function promotion()
+    public function skills()
     {
-        return $this->hasOne('App\Models\Promotion', 'id', 'promotion_id')->first();
+        return $this->belongsToMany('App\Models\Skill', 'user_skill', 'user_id', 'skill_id')
+            ->withPivot('note')
+            ;
     }
 
     /**
