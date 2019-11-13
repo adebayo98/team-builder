@@ -19,6 +19,14 @@ use Illuminate\Support\Facades\Cache;
 class UserController extends Controller
 {
     /**
+     *
+     */
+    public static function login()
+    {
+
+    }
+
+    /**
      * Filter users
      *
      * @param Request $request
@@ -122,12 +130,6 @@ class UserController extends Controller
                     'user' => $user,
                 ]
             ], 200);
-    }
-
-
-    public static function login()
-    {
-
     }
 
 }
