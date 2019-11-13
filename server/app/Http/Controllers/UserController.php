@@ -120,6 +120,32 @@ class UserController extends Controller
     }
 
     /**
+     * Get user random list.
+     *
+     * @param int $limit
+     * @return mixed
+     */
+    public function usersRandom(int $limit)
+    {
+        $users = DB::table('users')
+            ->join('formations', 'formations.id', '=', 'users.formation_id')
+            ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
+            ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
+            ->inRandomOrder()
+            ->limit($limit)
+            ->get();
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'users' => $users
+                ]
+            ], 200);
+    }
+
+    /**
      * Get an user
      *
      * @param int $id

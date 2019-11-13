@@ -30,6 +30,10 @@ Route::get('/users', 'UserController@users')
 Route::get('/user/{id}/skills', 'UserController@userSkills')
     ->name('app_user_list');
 
+// User list random
+Route::get('/users/random/{limit}', 'UserController@usersRandom')
+    ->name('app_user_list_random');
+
 // Single user
 Route::get('/user/{id}', 'UserController@user')
     ->name('app_single_user');

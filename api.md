@@ -18,6 +18,9 @@
 ##### Demander la liste utilisateurs
 * GET {domain}/api/users
 
+##### Demander la liste aléatoire d'utilisateur
+* GET {domain}/api/users/random/{limit}
+
 ##### Demander un utilisateur
 * GET {domain}/api/user/{user.id}
 
