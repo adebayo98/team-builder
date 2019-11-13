@@ -40,10 +40,10 @@ class UserController extends Controller
                 return $query->whereIn('formations.code', $formations);
             })
             ->when($skills, function ($query, $skills) {
-
+                return $query;
             })
             ->orderBy('users.first_name', 'asc')
-            ->limit(100)
+            ->limit()
             ->get();
 
         // Return response
@@ -52,7 +52,31 @@ class UserController extends Controller
                 'status' => 'success',
                 'message' => 'ok',
                 'result' => [
-                    'users' => $users
+                    'users' => $users,
+                    'total' => count($users)
+                ]
+            ], 200);
+    }
+
+    public function usersCache()
+    {
+        if (!Cache::has('app_user_list')){
+            $users = DB::table('users')
+                ->join('formations', 'formations.id', '=', 'users.formation_id')
+                ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
+                ->select('users.id as id','users.photo_url', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
+                ->orderBy('users.first_name', 'asc')
+                ->get();
+            Cache::put('app_user_list', $users, now()->addMinutes(10));
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'message' => 'ok',
+                'result' => [
+                    'users' => Cache::get('app_user_list'),
+                    'total' => count(Cache::get('app_user_list'))
                 ]
             ], 200);
     }
@@ -85,15 +109,7 @@ class UserController extends Controller
                 ]
             ], 200);
     }
+
+
 }
 
-// Check if cache exist
-//        if (!Cache::has('app_user_list')){
-//            $users = DB::table('users')
-//                ->join('formations', 'formations.id', '=', 'users.formation_id')
-//                ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
-//                ->select('users.photo_url', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
-//                ->orderBy('users.first_name', 'asc')
-//                ->get();
-//            Cache::put('app_user_list', $users, now()->addMinutes(10));
-//        }
