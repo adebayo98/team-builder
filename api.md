@@ -17,3 +17,6 @@
 
 ##### Demander une liste filtrer
 * GET {domain}/api/users/filter
+
+##### Demander les compétences d'un utilisateur
+* GET {domain}/api/user/{user.id}/skills
