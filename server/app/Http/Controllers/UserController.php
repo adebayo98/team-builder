@@ -19,11 +19,12 @@ use Illuminate\Support\Facades\Cache;
 class UserController extends Controller
 {
     /**
-     * Get a list of users
+     * Filter users
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return mixed
      */
-    public function users(Request $request)
+    public function usersFilter(Request $request)
     {
         $promotions = $request->query->get('promotions', false);
         $formations = $request->query->get('formations', false);
@@ -32,19 +33,27 @@ class UserController extends Controller
         $users = DB::table('users')
             ->join('formations', 'formations.id', '=', 'users.formation_id')
             ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
-            ->select('users.id as id','users.photo_url', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
+            ->select('users.id','users.photo_url', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
             ->when($promotions, function ($query, $promotions) {
-                return $query->whereIn('promotions.name', $promotions);
+                return $query->whereIn('promotions.id', $promotions);
             })
             ->when($formations, function ($query, $formations){
-                return $query->whereIn('formations.code', $formations);
+                return $query->whereIn('formations.id', $formations);
             })
             ->when($skills, function ($query, $skills) {
-                return $query;
+                $GLOBALS['skills'] = $skills;
+                return $query->whereExists(function ($query) {
+                    $query->whereExists(function ($query) {
+                        $query->select(DB::raw(1))
+                            ->from('user_skill')
+                            ->whereRaw('user_skill.user_id = users.id AND user_skill.skill_id IN (' . implode(',', $GLOBALS['skills']) . ')');
+                    });
+                });
             })
             ->orderBy('users.first_name', 'asc')
             ->limit(100)
             ->get();
+
 
         // Return response
         return response()
@@ -63,7 +72,7 @@ class UserController extends Controller
      *
      * @return mixed
      */
-    public function usersCache()
+    public function users()
     {
         if (!Cache::has('app_user_list')){
             $users = DB::table('users')
@@ -90,7 +99,7 @@ class UserController extends Controller
      * Get an user
      *
      * @param int $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return mixed
      */
     public function user(int $id)
     {
@@ -113,6 +122,12 @@ class UserController extends Controller
                     'user' => $user,
                 ]
             ], 200);
+    }
+
+
+    public static function login()
+    {
+
     }
 
 }
