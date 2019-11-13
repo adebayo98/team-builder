@@ -5,7 +5,7 @@
     justify-content: space-between;
 
     &__title{
-        margin-top: 32px;
+        margin: 32px 0;
         color: white;
         font-size: 24px;
         font-weight: bold;
@@ -16,7 +16,6 @@
         justify-content: space-between;
 
         ul {
-            margin-top: 30px;
 
             li{
                 margin-right: 32px;
@@ -36,10 +35,6 @@
 
         .buttons{
             margin-bottom: 10px;
-
-            .small-button{
-                margin-right: 32px;
-            }
 
             .button-second{
                 color: white;

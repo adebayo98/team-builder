@@ -22,8 +22,14 @@
         }
     }
 
-    .profile-header{
-        @extend .col-xs-2;
+    .small-button{
         @extend .col-xs-offset-3;
+        padding: 3px;
+        margin-right: 42px;
+        margin-left: 28em;
+    }
+
+    .profile-header{
+        
     }
 }

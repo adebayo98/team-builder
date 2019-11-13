@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -57,5 +58,16 @@ class User extends Authenticatable
     public function promotion()
     {
         return $this->hasOne('App\Models\Promotion', 'id', 'promotion_id')->first();
+    }
+
+    /**
+     * Checks whether the specified password matches that of the user model object
+     *
+     * @param string $password The password to check
+     * @return bool
+     */
+    public function passwordMatches(string $password): bool
+    {
+        return Hash::check($password, $this->password) ?? false;
     }
 }

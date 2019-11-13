@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import InputText from '../components/ui/InputText';
+import SmallButton from './ui/SmallButton';
 import ProfileHeader from './ProfileHeader';
 
 class HeaderTop extends Component {
@@ -21,6 +22,10 @@ class HeaderTop extends Component {
                 </a>
                 <InputText 
                     placeholder='Rechercher un utilisateur'
+                />
+                <SmallButton 
+                    buttonReturn=""
+                    functionBtn={this.props.functionButton}
                 />
                 <ProfileHeader />
             </div>
