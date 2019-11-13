@@ -75,7 +75,7 @@ class SkillsTableSeeder extends Seeder
                 'updated_at'  => Carbon::now(),
             ]);
             // Create skill's tools
-            foreach ($skillTools as $tool){
+            /*foreach ($skillTools as $tool){
                 DB::table('tools')->insert([
                     'logo'        => '',
                     'name'        => $tool[0],
@@ -86,7 +86,7 @@ class SkillsTableSeeder extends Seeder
                     'created_at'  => Carbon::now(),
                     'updated_at'  => Carbon::now(),
                 ]);
-            }
+            }*/
         }
     }
 }

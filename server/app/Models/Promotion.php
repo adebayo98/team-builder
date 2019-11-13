@@ -47,6 +47,6 @@ class Promotion extends Model
      */
     public function users()
     {
-        return $this->hasMany('App\Models\User');
+        /*return $this->hasMany('App\Models\User');*/
     }
 }

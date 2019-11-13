@@ -15,7 +15,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 // User list
-Route::get('/users', 'UserController@users')->name('app_user_lis');
+Route::get('/users/filter', 'UserController@usersFilter')
+    ->name('app_user_filter');
+
+// User list all
+Route::get('/users', 'UserController@users')
+    ->name('app_user_list');
+
+// User Login
+Route::post('/user/credentials', 'CredentialController@login')
+    ->name('app_user_login');
 
 // Single user
-Route::get('/user/{id}', 'UserController@user')->name('app_single_user');
+Route::get('/user/{id}', 'UserController@user')
+    ->name('app_single_user');
+
+// Skills
+Route::get('/skills', 'SkillController@skills')
+    ->name('app_skill_list');
+
+// Formations
+Route::get('/formations', 'FormationController@formations')
+    ->name('app_formation_list');

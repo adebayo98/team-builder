@@ -15,10 +15,10 @@ class UserSkillTableSeeder extends Seeder
      */
     public function run()
     {
-        // Get random skills
-        $skills =  Skill::all()->random(rand(1, count(SkillsTableSeeder::skills)));
         // Add skills for user
         foreach (\App\Models\User::all() as $key => $user){
+            // Get random skills
+            $skills =  Skill::all()->random(rand(1, 6));
             foreach ($skills as $key => $skill){
                 DB::table('user_skill')->insert([
                     'user_id'    => $user->id,
@@ -27,7 +27,7 @@ class UserSkillTableSeeder extends Seeder
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now(),
                 ]);
-                $tools = Tool::all()
+                /*$tools = Tool::all()
                     ->where('skill_id', $skill->id)
                     ->random(rand(1, Tool::all()->where('skill_id', $skill->id)->count() ));
                 foreach ($tools as $key => $tool){
@@ -38,7 +38,7 @@ class UserSkillTableSeeder extends Seeder
                         'created_at' => Carbon::now(),
                         'updated_at' => Carbon::now(),
                     ]);
-                }
+                }*/
             }
         }
     }

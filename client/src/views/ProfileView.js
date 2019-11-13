@@ -4,6 +4,9 @@ import HeaderTop from '../components/HeaderTop';
 import HeaderBottom from '../components/HeaderBottom';
 
 import ProfilePic from '../assets/img/profile-pic.jpg';
+import add from '../assets/img/icons/add-green.svg'
+import edit from '../assets/img/icons/edit.svg'
+
 
 class ProfileView extends React.Component {
 
@@ -59,7 +62,6 @@ class ProfileView extends React.Component {
 
     //editable or not
     editClick(){
-        console.log('eddditititititit')
         this.setState(state => ({
             editing: !state.editing
         }));
@@ -67,8 +69,6 @@ class ProfileView extends React.Component {
 
     //popup or not
     addCompetence(){
-        console.log('add competence')
-
         this.setState(state => ({
             addCompetence: !state.addCompetence
         }));
@@ -76,7 +76,6 @@ class ProfileView extends React.Component {
 
     //create new competance and add it in state
     createCompetence(event){
-        console.log('create competence')
         event.preventDefault();
 
         var newCompetence = {
@@ -91,8 +90,6 @@ class ProfileView extends React.Component {
 
     saveProfile(event){
         event.preventDefault();
-
-        console.log('save')
 
         this.setState({
             mail: event.target.mail.value,
@@ -128,6 +125,7 @@ class ProfileView extends React.Component {
                                     type="text"
                                     className="input-custom-competence"
                                     name="name"
+                                    placeholder="figma"
                                     value={this.props.searchString}
                                     onChange={this.handleChange}
                                 />
@@ -156,16 +154,16 @@ class ProfileView extends React.Component {
                             <div className="row ai-center jc-between mt-md">
                                 <div className="title-md">Personal informations</div>
                                 { this.state.editing ? null : 
-                                    <button onClick={this.editClick} className="edit-profile c-green d-f ai-center">Edit profil <img className="ml-xs" src='/images/icons/edit.svg'/></button>
+                                    <button onClick={this.editClick} className="edit-profile c-green d-f ai-center">Edit profil <img className="ml-xs" src={edit}/></button>
                                 }
                             </div>
         
 
                             { this.state.editing ? 
                                 <button className="new-profile-image mt-md">
-                                    <img src="/images/icons/add.svg" alt=""/>
+                                    <img src={add} alt=""/>
                                     <input type="file" ref={this.fileInput} name="image"/>
-                                </button>
+                                </button>   
                                 
                                 : 
                                 <div className="row mt-md">
@@ -260,7 +258,7 @@ class ProfileView extends React.Component {
                                 </div>
                                 <div className="row">
                                     <div onClick={this.addCompetence} className="competences-item new">
-                                        <img src="/images/icons/add.svg" alt=""/>
+                                        <img src={add} alt=""/>
                                     </div>
                                     
                                     {this.state.competences.map((value, index) => {
@@ -279,8 +277,12 @@ class ProfileView extends React.Component {
                         <div className="validate mt-lg">
                             <div className="container">
                                 <div className="row jc-between">
-                                    <div onClick={this.editClick} className="btn btn-empty">Cancel</div>
-                                    <button type="submit" className="btn btn-empty">Save</button>
+                                    <div className="col-xs-5">
+                                        <div onClick={this.editClick} className="second button-component">Cancel</div>
+                                    </div>
+                                    <div className="col-xs-5">
+                                        <button type="submit" className="button-component">Save</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
