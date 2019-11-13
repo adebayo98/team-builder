@@ -29,3 +29,7 @@ Route::get('/user/{id}', 'UserController@user')
 // Skills
 Route::get('/skills', 'SkillController@skills')
     ->name('app_skill_list');
+
+// Formations
+Route::get('/formations', 'FormationController@formations')
+    ->name('app_formation_list');
