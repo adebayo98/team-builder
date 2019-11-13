@@ -18,6 +18,12 @@ use Illuminate\Support\Facades\Cache;
  */
 class UserController extends Controller
 {
+
+    public function userSkills(int $id)
+    {
+
+    }
+
     /**
      * Filter users
      *

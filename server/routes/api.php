@@ -14,17 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// User list
-Route::get('/users/filter', 'UserController@usersFilter')
-    ->name('app_user_filter');
-
-// User list all
-Route::get('/users', 'UserController@users')
-    ->name('app_user_list');
-
 // User Login
 Route::post('/user/credentials', 'CredentialController@login')
     ->name('app_user_login');
+
+// User list filter
+Route::get('/users/filter', 'UserController@usersFilter')
+    ->name('app_user_filter');
+
+// User list static
+Route::get('/users', 'UserController@users')
+    ->name('app_user_list');
+
+// User list static
+Route::get('/user/{id}/skills', 'UserController@userSkills')
+    ->name('app_user_list');
 
 // Single user
 Route::get('/user/{id}', 'UserController@user')
