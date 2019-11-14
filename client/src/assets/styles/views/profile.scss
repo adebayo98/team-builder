@@ -71,6 +71,8 @@ form{
     width: 159px;
     height: 159px;
 
+    position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,7 +86,42 @@ form{
     margin-top: 39px;
     margin-right: 39px;
 
-    img{
+    .popup-modify{
+        position: absolute;
+
+        left: 100%;
+        top: 100%;
+
+        border-radius: 8px;
+
+        overflow: hidden;
+
+        .item{
+            color: white;
+
+            text-align: right;
+
+            background: $grey;
+
+            padding: 10px 10px 10px 20px;
+
+            &:hover{
+                background: $grey-hover;
+                
+            }
+        }
+    }
+
+    .modify-icon{
+        position: absolute;
+        
+        top: 10px;
+        right: 10px;
+        
+        cursor: pointer;
+    }
+
+    .icon{
         margin: auto;
         display: block;
         width: 30px;
@@ -105,7 +142,7 @@ form{
         img{
             display: block;
             width: auto;
-            margin-bottom: auto;
+            margin-bottom: inherit;
         }
         justify-content: center;
         align-items: center;
@@ -121,7 +158,7 @@ form{
 }
 
 .overlay{
-    z-index: 0;
+    z-index: 1;
 
     background: rgba(0,0,0,.5);
     

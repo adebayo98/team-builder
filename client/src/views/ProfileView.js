@@ -2,12 +2,13 @@ import React from 'react';
 
 import HeaderTop from '../components/HeaderTop';
 import HeaderBottom from '../components/HeaderBottom';
+import InputSelect from '../components/ui/InputSelect';
 
 import ProfilePic from '../assets/img/profile-pic.jpg';
 import add from '../assets/img/icons/add-green.svg'
 import edit from '../assets/img/icons/edit.svg'
 import imgPlaceholder from '../assets/img/img-placeholder.png'
-
+import modifyIcon from '../assets/img/icons/modify.svg'
 
 class ProfileView extends React.Component {
 
@@ -33,7 +34,15 @@ class ProfileView extends React.Component {
             imageProfile: "",
 
             competences: [],
+            notes: [],
 
+            showModify: false,
+
+            optionsType: [],
+
+            skillType: null,
+            currentNote: null,
+            
         }
         this.fileInput = React.createRef();
 
@@ -53,8 +62,36 @@ class ProfileView extends React.Component {
         const responseCompetences = await fetch(`http://hetic.adebayo.fr/api/user/${id}/skills`);
         const jsonCompetences = await responseCompetences.json();
 
+        const responseTypesOptions = await fetch(`http://hetic.adebayo.fr/api/skills`);
+        const jsonTypesOptions = await responseTypesOptions.json();
+
+        const responseNotes = await fetch(`http://hetic.adebayo.fr/api/skill/notes`);
+        const jsonNotes = await responseNotes.json();
+
         this.setState({
-            competences: jsonCompetences.result.skills
+            competences: jsonCompetences.result.skills,
+        })
+
+        jsonNotes.result.skill_notes.map(item => {
+            var newNote = {
+                'label' : item.note,
+                'value' : item.note
+            }
+            this.setState({
+                notes: this.state.notes.concat(newNote)
+            })
+        })
+        
+        console.log(this.state.notes)
+
+        jsonTypesOptions.result.users.map(item => {
+            var option = {
+                'label' : item.name,
+                'value' : item.id
+            }
+            this.setState({
+                optionsType: this.state.optionsType.concat(option)
+            })
         })
 
         this.setState({ 
@@ -107,19 +144,21 @@ class ProfileView extends React.Component {
         }));
     }
 
-    //create new competance and add it in state
+    //create new competence and add it in state
     createCompetence(event){
         event.preventDefault();
 
-        var newCompetence = {
-            'name':  event.target.name.value,
-            'type': event.target.type.value
-        }
+        fetch('http:')
 
-        this.setState({
-            competences: this.state.competences.concat(newCompetence)
-        });
+        
+
     }
+
+    toggleModify = () => {
+        this.setState({
+          showModify: !this.state.showModify
+        })
+      }
 
     saveProfile(event){
         event.preventDefault();
@@ -127,13 +166,6 @@ class ProfileView extends React.Component {
             method: 'POST',
             body: this.state.mail,
         };
-
-        // fetch('http://hetic.adebayo.fr/api', myInit).then(function(response) {
-        //     return response.json();
-        // }).then(function(jsonResponse) {
-        //     console.log(jsonResponse);
-        // });
-
         this.setState({
             mail: event.target.mail.value,
             persoMail: event.target.persoMail.value,
@@ -163,22 +195,19 @@ class ProfileView extends React.Component {
                         <div className="competences-popup">
                             <div className="title-md">Ajouter une compétence</div>
                             <form className="create-competence mt-md" onSubmit={this.createCompetence}>
-                                <label className="label title-xs">Nom de la compétence</label>
-                                <input
-                                    type="text"
-                                    className="input-custom-competence"
-                                    name="name"
-                                    placeholder="figma"
-                                    value={this.props.searchString}
-                                    onChange={this.handleChange}
+                                
+                                <InputSelect 
+                                    label='Type' 
+                                    options={this.state.optionsType} 
+                                    onSelectChange={(optionsType) => this.setState({skillType: optionsType})}
                                 />
-                                <label className="label title-xs">Type</label>
-                                <select className="select-custom-competence" name="type" id="">
-                                    <option value="design">Design</option>
-                                    <option value="dev">Dev</option>
-                                    <option value="method">Method</option>
-                                </select>
 
+                                <InputSelect 
+                                    label='Notes' 
+                                    options={this.state.notes} 
+                                    onSelectChange={(note) => this.setState({currentNote: note})}
+                                />
+                                
                                 <div className="d-f mt-md">
                                     <button className="close btn btn-empty" onClick={this.addCompetence}>Annuler</button>
                                     <button type="submit" className="create-competence-btn btn btn-green">Créer</button>
@@ -296,7 +325,15 @@ class ProfileView extends React.Component {
                                             <div className="label title-xs">Resume</div>
                                             <div className="label title-xs chars-left">{ this.state.charLeft } characters left</div>
                                         </div>
-                                        <textarea className="textarea" placeholder="About you.." name="resume" value={this.state.resume} onChange={this.charChange}>
+                                        <textarea className="textarea" placeholder="About you.." name="resume" value={this.state.resume} 
+                                            onChange={ event => {
+                                                this.setState({
+                                                    resume: event.value
+                                                });
+                                                this.charChange(event);
+                                            }
+                                                
+                                            }>
                                         </textarea>                                    
                                     </div>
                                 </div>
@@ -331,14 +368,25 @@ class ProfileView extends React.Component {
                                 </div>
                                 
                                 {this.state.competences.map((value, index) => {
-                                    return <div key={index} className="competences-item">
-                                                <div className="ta-c">
-                                                    {console.log(value)}
-                                                    <img src={"http://hetic.adebayo.fr" + value.icon} alt=""/>
-                                                    <div className="name">{value.name}</div>
-                                                    <div className="type">{value.type}</div>
+                                    return(
+                                        <div key={index} className="competences-item">
+                                            <div className="modify-icon">
+                                                <img src={modifyIcon} onClick={this.toggleModify} alt=""/>
+                                                { this.state.showModify ? 
+                                                <div className="popup-modify">
+                                                    <div className="item">Modifier</div>
+                                                    <div className="item">Supprimer</div>
                                                 </div>
+                                                : null}
+                                                
                                             </div>
+                                            <div className="ta-c">
+                                                <img className="icon" src={"http://hetic.adebayo.fr" + value.icon} alt=""/>
+                                                <div className="name">{value.name}</div>
+                                                <div className="type">{value.type}</div>
+                                            </div>
+                                        </div>
+                                    ); 
                                 })}
                             </div>
                         </div>
