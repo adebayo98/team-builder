@@ -1,4 +1,5 @@
 import React from 'react';
+import querystring from 'query-string'
 
 /* COMPONENTS */
 
@@ -11,20 +12,41 @@ class HomeView extends React.Component {
 
     constructor(props){
         super(props);
-
         this.state = { 
-            cards: []
+            cards: [],
+            email: null,
+            password: null,
+            error: {}
         }
     }
 
     async componentDidMount(){
-        const response = await fetch(`http://hetic.adebayo.fr//api/users/random/3`);
+        const response = await fetch(`http://hetic.adebayo.fr/api/users/random/3`);
         const cards = await response.json();
+        this.setState({cards: cards.result.users})
+    }
 
-        console.log(cards)
-
-        this.setState({
-            cards: cards.result.users
+    getCredentials = (event) => {
+        event.preventDefault();
+        fetch('http://hetic.adebayo.fr/api/user/credentials', {
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            method: 'POST',
+            body: querystring.stringify(this.state)
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if(data.error){
+                this.setState({error: data.error})
+            }
+            // hountondji.adebayo@hetic.net
+            if(data.status === "success"){
+                const token = data.result.token.split('.');
+                const payload = atob(token[1]);
+                localStorage.setItem('userData', payload);
+                let role = JSON.parse(localStorage.getItem('userData').role);
+            }
         })
     }
 
@@ -47,12 +69,15 @@ class HomeView extends React.Component {
             <div className={'home-right container-fluid d-f'}>
                 <img className={'home-right__logo'} src={'/images/logo-3-blanc.svg'} alt={'Logo Hetic'} />
                 <h2 className={'home-right__title'}>Connexion</h2>
-                <form className={'home-right__form d-f'}>
+                <form className={'home-right__form d-f'} onSubmit={(event) => this.getCredentials(event)}>
+                    <p className=''>{this.state.error.global}</p>
                     <InputEmail 
                         label="Email*"
+                        onEmailChange={(email) => this.setState({email})}
                     />
                     <InputPassword 
                         label="Mot de passe*"
+                        onPasswordChange={(password) => this.setState({password})}
                     />
                     <ButtonComponent
                         label="Connexion"
