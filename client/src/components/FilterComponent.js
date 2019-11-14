@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import $ from "jquery"
 
 /* COMPONENTS */
 import InputCheckbox from './ui/InputCheckbox';
@@ -78,7 +77,7 @@ class Filter extends Component {
 
         return(
             <div className={'filter-component d-f container-fluid'}>
-                <h2 className={'filter-component__title'}>Flitre</h2>
+                <h2 className={'filter-component__title'}>Filtre</h2>
                 {this.state.isLoading ? 
                     <div className="ta-c">Loading students</div>
                 :
