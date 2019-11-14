@@ -9,39 +9,62 @@
     label{
         display: block;
         text-align: left;
-        color: white;
         font-size: 16px;
     }
   
     // Option List
     .option-list{
       position: relative;
+      
       height: auto;
   
       &.active{
         .option-list__items{
-          display: block;
+            margin: 0;
+
+            overflow: hidden;    
+            display: block;
+            position: absolute;
+            z-index: 1;
+
         }
-        .option-list__item-current::after{
-          transform: rotate(0.5turn) translateY(50%);
+        .option-list__item{
+            background: $grey;
+            padding: 10px 20px;
+
+            &:hover{
+                background: $grey-hover;
+            }
+        }
+        .option-list__item-current{
+            &:after{
+                transform: rotate(0.5turn) translateY(50%);
+              }
         }
     }
 
     &__item-current{
         margin: 8px auto auto;
         padding-bottom: 5px;
+
         display: block;
         width: 100%;
-        height: 24px;
+
         color: white;
         font-size: 100%;
+
         border: none;
         border-radius: 0px;
         border-bottom: 1px solid white;
+
         background-color: $grey;
+
         position: relative;
+
         display: flex;
         align-items: center;
+        padding: 10px 20px;
+
         cursor: pointer;
             &::placeholder{
                 color:white;

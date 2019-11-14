@@ -50,7 +50,6 @@ class InputSelect extends React.Component{
                 <label> {this.props.label} </label>
                 <ul className={'option-list'} onClick={(event) => this.toggleOptions(event)}>
                     <li className={'option-list__item-current'} data-value={this.state.currentOption.value}> {this.state.currentOption.label} </li>
-
                     <div className={'option-list__items'}>
                         {options}
                     </div>
