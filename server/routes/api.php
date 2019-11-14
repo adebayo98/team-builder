@@ -35,8 +35,16 @@ Route::get('/users', 'UserController@users')
     ->name('app_user_list');
 
 // User list static
+Route::get('/user/search/{search_value}', 'UserController@searchUser')
+    ->name('app_search_user_list');
+
+// User list static
 Route::put('/user/{id}', 'UserController@edit')
     ->name('app_user_update');
+
+// User skills
+Route::get('/user/{user_id}/skills', 'UserController@userSkills')
+    ->name('app_user_skill_list');
 
 // User skills insert or update
 Route::post('/user/{user_id}/skill/{skill_id}/{note}', 'UserController@addUserSkills')
