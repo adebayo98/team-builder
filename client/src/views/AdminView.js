@@ -14,7 +14,7 @@ class AdminView extends React.Component {
 
         this.state = {
             isLoading: true,
-            data: null,
+            users: null,
 
             filterF: null,
             filterS: null,
@@ -33,12 +33,9 @@ class AdminView extends React.Component {
         ])
         .then(([res1]) => Promise.all([res1.json()]))
         .then(([data1]) => {
-
-            console.log(data1.result.users);
-
             this.setState({
                 isLoading: false,
-                data: data1.result,
+                users: data1.result.users,
             })
         });
     }
@@ -107,7 +104,7 @@ class AdminView extends React.Component {
             <aside id={'adminAside'} className={'admin-aside'}>
                 <FilterComponent 
                     titlePromotions='Promotions'
-                    titleCompetences='Compétences'
+                    titleCompetences='Rôles'
                 />
             </aside>
 
@@ -116,14 +113,15 @@ class AdminView extends React.Component {
                 <div className="ta-c">Loading students</div>
                 : 
                 <div>
-                    <p className={'admin-content__number'}>{this.state.data.total} utilisateurs</p>
+                    <p className={'admin-content__number'}>{this.state.users.length} utilisateurs</p>
                     <div className={'admin-content__cards d-f jc-around'}>
                         {this.state.filterF == null && this.state.filterS == null ? 
-                            this.state.data.users.map( item => {
+                            this.state.users.map( item => {
                                 return(
                                     <ProfileCard 
+                                        class={item.formation + ' ' + item.role}
                                         id= {item.id}
-                                        class= {item.formation} 
+                                        formation= {item.formation} 
                                         img =""
                                         name= {item.first_name + ' ' + item.last_name}
                                         job= {item.role}

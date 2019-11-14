@@ -18,6 +18,31 @@ use Illuminate\Support\Facades\Validator;
  */
 class UserController extends Controller
 {
+
+    public function searchUser(string $searchValue)
+    {
+        $searchValue = '%' . $searchValue . '%';
+        $users = DB::table('users')
+            ->where('last_name', 'like', $searchValue)
+            ->orWhere('first_name', 'like', $searchValue)
+            ->get();
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'message' => 'ok',
+                'result' => [
+                    'users' => $users,
+                    'total' => count($users)
+                ]
+            ], 404);
+    }
+
+    /**
+     * Distinct list of user roles
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function rolesList()
     {
         if (!Cache::has('app_roles_list')) {
