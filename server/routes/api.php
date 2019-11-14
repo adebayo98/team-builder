@@ -35,7 +35,7 @@ Route::put('/user/{id}', 'UserController@edit')
     ->name('app_user_update');
 
 // User list static
-Route::post('/user/{user_id}/skill/{skill_id}/{note}', 'UserController@userSkills')
+Route::post('/user/{user_id}/skill/{skill_id}/{note}', 'UserController@addUserSkills')
     ->name('app_user_list');
 
 // User list random

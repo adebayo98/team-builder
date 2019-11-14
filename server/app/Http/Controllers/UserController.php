@@ -18,7 +18,12 @@ use Illuminate\Support\Facades\Validator;
  */
 class UserController extends Controller
 {
-
+    /**
+     * Register new user
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function register(Request $request)
     {
         // Validate request data
@@ -240,6 +245,42 @@ class UserController extends Controller
                 'code' => '1',
                 'result' => [
                     'user' => $user,
+                ]
+            ], 200);
+    }
+
+    /**
+     * Create or update an user skills
+     *
+     * @param $userId
+     * @param $skillID
+     * @param $note
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addUserSkills($userId, $skillID, $note)
+    {
+        // Check if skills exist
+        $skill = DB::table('user_skill')
+            ->where('user_id', $userId)
+            ->where('skill_id', $skillID);
+
+        if ($skill){
+            $skill->update(['note' => $note]);
+        }else{
+            DB::table('user_skill')
+                ->insert([
+                    'user_id' => $userId,
+                    'skill_id' => $skillID,
+                    'note' => $note
+                ]);
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'skills' => User::find($userId)->skills()->get()->toArray()
                 ]
             ], 200);
     }
