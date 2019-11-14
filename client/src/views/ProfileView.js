@@ -1,4 +1,5 @@
 import React from 'react';
+import querystring from 'query-string';
 
 import HeaderTop from '../components/HeaderTop';
 import HeaderBottom from '../components/HeaderBottom';
@@ -24,6 +25,8 @@ class ProfileView extends React.Component {
 
             isLoading: true,
 
+            first_name: "",
+            last_name: "",
             name: "",
             mail: "",
             persoMail: "",
@@ -42,7 +45,6 @@ class ProfileView extends React.Component {
 
             skillType: null,
             currentNote: null,
-            
         }
         this.fileInput = React.createRef();
 
@@ -95,6 +97,8 @@ class ProfileView extends React.Component {
         })
 
         this.setState({ 
+            first_name: jsonInfos.result.user.first_name,
+            last_name: jsonInfos.result.user.last_name,
             email : jsonInfos.result.user.email,
             job: jsonInfos.result.user.job,
             persoMail: jsonInfos.result.user.personal_email,
@@ -147,11 +151,24 @@ class ProfileView extends React.Component {
     //create new competence and add it in state
     createCompetence(event){
         event.preventDefault();
+        var id = window.location.search.split("=")[1];
 
-        fetch('http:')
-
-        
-
+        fetch(`http://hetic.adebayo.fr/api/user/${id}/skill/${this.state.skillType}/${this.state.currentNote}`, {
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            method: 'POST',
+            body: querystring.stringify({
+            })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if(data.status == "success"){
+                this.setState({
+                    competences: data.result.skills
+                })
+            }
+        })
     }
 
     toggleModify = () => {
@@ -162,20 +179,29 @@ class ProfileView extends React.Component {
 
     saveProfile(event){
         event.preventDefault();
-        var myInit = { 
-            method: 'POST',
-            body: this.state.mail,
-        };
-        this.setState({
-            mail: event.target.mail.value,
-            persoMail: event.target.persoMail.value,
-            phone: event.target.phone.value,
-            job: event.target.job.value,
-            resume: event.target.resume.value
-        })
+        var id = window.location.search.split("=")[1];
+        
         this.setState(state => ({
             editing: !state.editing
         }));
+
+        fetch(`http://hetic.adebayo.fr/api/user/${id}`, {
+            headers: {
+                'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            method: 'POST',
+            body: querystring.stringify({
+                first_name: this.state.first_name,
+                last_name: this.state.last_name,
+                personal_email: this.state.persoMail,
+                phone: this.state.phone,
+                description: this.state.resume,
+            })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+        })
     }
 
 
@@ -255,15 +281,15 @@ class ProfileView extends React.Component {
                                         <div className="row">
                                             <div className="col-xs-10">
                                                 <div className="mt-sm">
-                                                    <label className="label title-xs">Personal email</label>
+                                                    <label className="label title-xs">Prénom</label>
                                                     <input
-                                                        type="email"
+                                                        type="text"
                                                         className="input-custom"
-                                                        placeholder="personal email"
-                                                        name="persoMail"
-                                                        value={this.state.persoMail}
+                                                        placeholder="Prénom"
+                                                        name="first_name"
+                                                        value={this.state.first_name}
                                                         onChange={(event) => this.setState({
-                                                            persoMail: event.value
+                                                            first_name: event.target.value
                                                         })}
                                                     />
                                                 </div>
@@ -276,7 +302,7 @@ class ProfileView extends React.Component {
                                                         name="phone"
                                                         value={this.state.phone}
                                                         onChange={(event) => this.setState({
-                                                            phone: event.value
+                                                            phone: event.target.value
                                                         })}
                                                     />
                                                 </div>
@@ -288,28 +314,28 @@ class ProfileView extends React.Component {
                                         <div className="row jc-end">
                                             <div className="col-xs-10">
                                                 <div className="mt-sm">
+                                                    <label className="label title-xs">Nom</label>
+                                                    <input
+                                                        type="text"
+                                                        className="input-custom"
+                                                        placeholder="Nom"
+                                                        name="last_name"
+                                                        value={this.state.last_name}
+                                                        onChange={(event) => this.setState({
+                                                            last_name: event.target.value
+                                                        })}
+                                                    />
+                                                </div>
+                                                <div>
                                                     <label className="label title-xs">Email</label>
                                                     <input
                                                         type="email"
                                                         className="input-custom"
                                                         placeholder="Email"
-                                                        name="mail"
-                                                        value={this.state.email}
+                                                        name="persoMail"
+                                                        value={this.state.persoMail}
                                                         onChange={(event) => this.setState({
-                                                            email: event.value
-                                                        })}
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <label className="label title-xs">Job</label>
-                                                    <input
-                                                        type="text"
-                                                        className="input-custom"
-                                                        placeholder="Your job"
-                                                        name="job"
-                                                        value={this.state.job}
-                                                        onChange={(event) => this.setState({
-                                                            job: event.value
+                                                            persoMail: event.target.value
                                                         })}
                                                     />
                                                 </div>
@@ -328,19 +354,16 @@ class ProfileView extends React.Component {
                                         <textarea className="textarea" placeholder="About you.." name="resume" value={this.state.resume} 
                                             onChange={ event => {
                                                 this.setState({
-                                                    resume: event.value
+                                                    resume: event.target.value
                                                 });
                                                 this.charChange(event);
                                             }
-                                                
                                             }>
                                         </textarea>                                    
                                     </div>
                                 </div>
                             </div>
                         </section>
-
-
 
                         <div className="validate mt-lg">
                             <div className="container">
@@ -370,6 +393,7 @@ class ProfileView extends React.Component {
                                 {this.state.competences.map((value, index) => {
                                     return(
                                         <div key={index} className="competences-item">
+                                            <div className="rank">{value.pivot.note}</div>
                                             <div className="modify-icon">
                                                 <img src={modifyIcon} onClick={this.toggleModify} alt=""/>
                                                 { this.state.showModify ? 
@@ -378,7 +402,6 @@ class ProfileView extends React.Component {
                                                     <div className="item">Supprimer</div>
                                                 </div>
                                                 : null}
-                                                
                                             </div>
                                             <div className="ta-c">
                                                 <img className="icon" src={"http://hetic.adebayo.fr" + value.icon} alt=""/>
