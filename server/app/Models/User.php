@@ -75,6 +75,19 @@ class User extends Authenticatable
     }
 
     /**
+     * User update rules.
+     *
+     * @return array
+     */
+    public static function updateRules()
+    {
+        return [
+            'email' =>  'email|regex:#@hetic.net$#|unique:users',
+            'personal_email' => 'email|unique:users',
+        ];
+    }
+
+    /**
      * The skills that belong to the user.
      */
     public function skills()

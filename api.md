@@ -33,3 +33,6 @@
 ##### Demander une liste filtrer
 * GET {domain}/api/users/filter
 
+##### Mettre à jour un utilisateur
+* PUT {domain}/api/user/{user.id}
+

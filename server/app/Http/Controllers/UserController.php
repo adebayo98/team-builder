@@ -50,6 +50,28 @@ class UserController extends Controller
     }
 
     /**
+     * Edit an user.
+     *
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit($id, Request $request)
+    {
+        $request->request->remove('email');
+        User::where('id', $id)->update($request->request->all());
+        // Return successful response
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'user' => User::find($id)
+                ]
+            ], 200);
+    }
+
+    /**
      * Get a users skills
      *
      * @param int $id
