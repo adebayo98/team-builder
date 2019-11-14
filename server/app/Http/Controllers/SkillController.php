@@ -52,7 +52,7 @@ class SkillController extends Controller
     public function skillTypes()
     {
         if (!Cache::has('app_skill_types_list')) {
-            $types = DB::select('SELECT DISTINCT type as name FROM skills');
+            $types = DB::select('SELECT DISTINCT type as name FROM skills s where s.type <> "Job"');
             Cache::put('app_skill_types_list', $types, now()->addMinutes(60 * 24));
         }
 

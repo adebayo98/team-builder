@@ -79,5 +79,5 @@ Route::get('/formations', 'FormationController@formations')
     ->name('app_formation_list');
 
 // Groups
-Route::get('/groups/{name}/', 'FormationController@formations')
+Route::get('/teams/{formation}/{user_per_team}', 'GroupController@build')
     ->name('app_group_creation');
