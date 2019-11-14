@@ -11,6 +11,9 @@ import edit from '../assets/img/icons/edit.svg'
 import imgPlaceholder from '../assets/img/img-placeholder.png'
 import modifyIcon from '../assets/img/icons/modify.svg'
 
+/* HELPERS */
+import SessionHelpers from '../helpers/SessionHelper';
+
 class ProfileView extends React.Component {
 
 
@@ -56,6 +59,11 @@ class ProfileView extends React.Component {
     }
 
     async componentDidMount() {
+
+        if(SessionHelpers.isAuth() == false) {
+            window.location.href = '/login';
+        }
+
         var id = window.location.search.split("=")[1];
 
         const responseInfo = await fetch(`http://hetic.adebayo.fr/api/user/${id}`);

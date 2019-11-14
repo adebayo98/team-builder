@@ -10,7 +10,7 @@ const SessionHelper =  {
     },
 
     hasRole: (role) => {
-        return JSON.parse(localStorage.getItem('userData')) === role ? true : false;
+        return JSON.parse(localStorage.getItem('userData')).role === "student" ? true : false;
     }
 
 }

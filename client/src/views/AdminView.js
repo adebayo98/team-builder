@@ -48,8 +48,12 @@ class AdminView extends React.Component {
         }
 
         this.setState({
-            currentUser: SessionHelpers.userData().role
+            currentUser: SessionHelpers.userData().uid
         });
+
+        if(SessionHelpers.hasRole() == true) {
+            window.location.href= '/profile?id='+ SessionHelpers.userData().uid;
+        }
     }
 
 
@@ -60,6 +64,7 @@ class AdminView extends React.Component {
     }
 
     openFilter(){
+        console.log(this.state.currentUser)
         this.setState({
             aside: !this.state.aside
         })
