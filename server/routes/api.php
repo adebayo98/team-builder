@@ -39,7 +39,7 @@ Route::get('/user/search/{search_value}', 'UserController@searchUser')
     ->name('app_search_user_list');
 
 // User list static
-Route::put('/user/{id}', 'UserController@edit')
+Route::post('/user/{id}', 'UserController@edit')
     ->name('app_user_update');
 
 // User skills
