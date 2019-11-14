@@ -175,7 +175,6 @@ class UserController extends Controller
                 return $query->whereIn('users.role', '=', $role);
             })
             ->inRandomOrder()
-                // ->orderBy('users.first_name', 'asc')
             ->get();
 
         // Return response
@@ -203,7 +202,6 @@ class UserController extends Controller
                 ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
                 ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
                 ->inRandomOrder()
-                // ->orderBy('users.first_name', 'asc')
                 ->get();
             Cache::put('app_user_list', $users, now()->addMinutes(60 * 24));
         }
@@ -305,10 +303,14 @@ class UserController extends Controller
         // Check if skills exist
         $skill = DB::table('user_skill')
             ->where('user_id', $userId)
-            ->where('skill_id', $skillID);
+            ->where('skill_id', $skillID)
+            ->first();
 
         if ($skill){
-            $skill->update(['note' => $note]);
+            DB::table('user_skill')
+                ->where('user_id', $userId)
+                ->where('skill_id', $skillID)
+                ->update(['note' => $note]);
         }else{
             DB::table('user_skill')
                 ->insert([
