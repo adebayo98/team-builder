@@ -1,7 +1,7 @@
 .small-button{
     background: $green;
     border-radius: 8px;
-    padding: 3px;
+    padding: 6px;
 
     &:hover{
         background: $green-hover;
@@ -9,6 +9,6 @@
 
     img {
         margin: auto;
-        width: 20px;
+        width: 14px;
     }
 }

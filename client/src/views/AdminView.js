@@ -19,9 +19,6 @@ class AdminView extends React.Component {
             isLoading: true,
             users: null,
 
-            filterF: null,
-            filterS: null,
-
             createGroup: false,
             aside: false,
         };
@@ -132,8 +129,7 @@ class AdminView extends React.Component {
                 <div>
                     <p className={'admin-content__number'}>{this.state.users.length} utilisateurs</p>
                     <div className={'admin-content__cards d-f jc-around'}>
-                        {this.state.filterF == null && this.state.filterS == null ? 
-                            this.state.users.map( item => {
+                            {this.state.users.map( item => {
                                 return(
                                     <ProfileCard 
                                         class={item.formation + ' ' + item.role}
@@ -144,9 +140,7 @@ class AdminView extends React.Component {
                                         job={item.role}
                                     />
                                 )
-                            })
-                        : <div>ok</div>
-                        }
+                            })}
                     </div>
                 </div>
                 
