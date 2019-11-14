@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 /* COMPONENTS */
 import InputCheckbox from './ui/InputCheckbox';
+import RolesTranslator from '../helpers/RolesTranslator';
 
 class Filter extends Component {
 
@@ -99,7 +100,7 @@ class Filter extends Component {
                             {this.state.roles.skill_types.map( item => {
                                 return(
                                     <InputCheckbox 
-                                        label = {item.role}
+                                        label = {RolesTranslator(item.role)}
                                         function={this.bindFilter}
                                         dataFilter="role"
                                     />
