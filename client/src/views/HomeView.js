@@ -77,7 +77,7 @@ class HomeView extends React.Component {
                 <img className={'home-right__logo'} src={'/images/logo-3-blanc.svg'} alt={'Logo Hetic'} />
                 <h2 className={'home-right__title'}>Connexion</h2>
                 <form className={'home-right__form d-f'} onSubmit={(event) => this.getCredentials(event)}>
-                    <p className=''>{this.state.error.global}</p>
+                    <p className='error'>{this.state.error.global}</p>
                     <InputEmail 
                         label="Email*"
                         onEmailChange={(email) => this.setState({email})}

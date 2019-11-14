@@ -45,6 +45,14 @@
         &__form{
             flex-direction: column;
 
+            .error{
+                margin-top: 6px;
+                margin-left: 0px;
+                font-size: 14px;
+                line-height: 14px;
+                color: $orange;
+            }
+
             .button-component{
                 margin-top: 24px;
             }
