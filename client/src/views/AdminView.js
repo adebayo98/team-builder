@@ -32,10 +32,15 @@ class AdminView extends React.Component {
             fetch('http://hetic.adebayo.fr/api/users'),
         ])
         .then(([res1]) => Promise.all([res1.json()]))
-        .then(([data1]) => this.setState({
-            isLoading: false,
-            data: data1.result,
-        }));
+        .then(([data1]) => {
+
+            console.log(data1.result.users);
+
+            this.setState({
+                isLoading: false,
+                data: data1.result,
+            })
+        });
     }
 
 
