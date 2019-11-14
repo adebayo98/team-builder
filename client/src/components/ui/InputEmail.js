@@ -11,6 +11,7 @@ const InputEmail = (props) => {
                 type={'text'}
                 name={props.name}
                 placeholder={props.placeholder ? props.placeholder : 'email@gmail.com'}
+                onChange={(event) => props.onEmailChange(event.target.value)}
             />
             {/* Error */}
             <p className={'input-email-component__error ' + (props.error ? '' : '_hide')}>{props.error}</p>

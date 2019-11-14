@@ -5,7 +5,7 @@ class InputCheckbox extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            checked : false
+            checked : false,
         }
     }
 
@@ -19,7 +19,11 @@ class InputCheckbox extends React.Component{
                 <input
                     className={'input-checkbox-component__value'}
                     type={'checkbox'}
-                    style={{'--label': '"'+ props.label +'"'}}
+                    style={{'--label': '"'+this.props.label +'"'}}
+                    name='filter[]'
+                    onClick={this.props.function}
+                    data-filter={this.props.dataFilter}
+                    data-value={this.props.label}
                 />
                 {/* Error */}
                 <p className={'input-email-component__error ' + (props.error ? '' : '_hide')}>{props.error}</p>

@@ -13,6 +13,7 @@ const InputPassword = (props) => {
                     className={'input-password-component__value'}
                     type={'password'}
                     placeholder={props.placeholder ? props.placeholder : '**********'}
+                    onChange={(event) => props.onPasswordChange(event.target.value)}
                 />
             </div>
             {/* Error */}
