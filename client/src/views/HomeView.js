@@ -45,7 +45,15 @@ class HomeView extends React.Component {
                 const token = data.result.token.split('.');
                 const payload = atob(token[1]);
                 localStorage.setItem('userData', payload);
-                let role = JSON.parse(localStorage.getItem('userData').role);
+                let role = JSON.parse(localStorage.getItem('userData')).role;
+                let idStudent = JSON.parse(localStorage.getItem('userData')).uid;
+
+                if(role !== 'student'){
+                    window.location.href = '/admin';
+                } else {
+                    // window.location.href= '/profile?id='+role;
+                    console.log(idStudent);
+                }
             }
         })
     }
