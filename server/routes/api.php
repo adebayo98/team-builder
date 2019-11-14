@@ -34,9 +34,13 @@ Route::get('/users', 'UserController@users')
 Route::put('/user/{id}', 'UserController@edit')
     ->name('app_user_update');
 
-// User list static
+// User skills insert or update
 Route::post('/user/{user_id}/skill/{skill_id}/{note}', 'UserController@addUserSkills')
-    ->name('app_user_list');
+    ->name('app_manage_user_skill');
+
+// Delete user skill
+Route::delete('/user/{user_id}/skill/{skill_id}', 'UserController@deleteUserSkills')
+    ->name('app_delete_user_skill');
 
 // User list random
 Route::get('/users/random/{limit}', 'UserController@usersRandom')

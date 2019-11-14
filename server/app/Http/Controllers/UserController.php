@@ -285,5 +285,29 @@ class UserController extends Controller
             ], 200);
     }
 
+    /**
+     * Delete an user skills
+     *
+     * @param $userId
+     * @param $skillID
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteUserSkills($userId, $skillID)
+    {
+        DB::table('user_skill')
+            ->where('user_id', $userId)
+            ->where('skill_id', $skillID)
+            ->delete();
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'skills' => User::find($userId)->skills()->get()->toArray()
+                ]
+            ], 200);
+    }
+
 }
 

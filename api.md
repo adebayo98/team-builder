@@ -15,8 +15,11 @@
 ##### Demander la liste des types de compétences
 * GET {domain}/api/skill/notes
 
-##### AJouter ou modifer une compétence
+##### Ajouter ou modifer une compétence
 * POST {domain}/api/user/{user.id}/skill/{skill.id}/{note}
+
+##### Suprimer une compétence utilisateir
+* DELETE {domain}/api/user/{user.id}/skill/{skill.id}
 
 ##### Inscription
 * POST {domain}/api/user/register
