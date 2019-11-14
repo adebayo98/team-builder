@@ -6,8 +6,6 @@ use Carbon\Carbon;
 use App\Models\User;
 use Namshi\JOSE\SimpleJWS;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 
 /**
@@ -37,7 +35,7 @@ class CredentialController extends Controller
                     'message' => 'Request meets validation errors',
                     'code' => 2,
                     'error' => $validation->errors()->messages()
-                ], 404);
+                ], 400);
         }
 
         // Check if email and password match
@@ -51,7 +49,7 @@ class CredentialController extends Controller
                     'error' => [
                         'global' => 'Adresse email ou mot de passe incorrect.'
                     ]
-                ], 404);
+                ], 400);
         }
 
         // Return successful response

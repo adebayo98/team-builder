@@ -43,5 +43,52 @@ class SkillController extends Controller
                 ]
             ], 200);
     }
+
+    /**
+     * Get type of skills
+     *
+     * @return mixed
+     */
+    public function skillTypes()
+    {
+        if (!Cache::has('app_skill_types_list')) {
+            $types = DB::select('SELECT DISTINCT type as name FROM skills');
+            Cache::put('app_skill_types_list', $types, now()->addMinutes(60 * 24));
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'message' => 'ok',
+                'result' => [
+                    'skill_types' => Cache::get('app_skill_types_list'),
+                    'total' => count(Cache::get('app_skill_types_list'))
+                ]
+            ], 200);
+    }
+
+    /**
+     * Get type of skills
+     *
+     * @return mixed
+     */
+    public function skillNotes()
+    {
+        if (!Cache::has('app_skill_notes_list')) {
+            $notes = DB::select('SELECT DISTINCT note FROM user_skill order by note asc');
+            Cache::put('app_skill_notes_list', $notes, now()->addMinutes(60 * 24));
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'message' => 'ok',
+                'result' => [
+                    'skill_notes' => Cache::get('app_skill_notes_list'),
+                    'total' => count(Cache::get('app_skill_notes_list'))
+                ]
+            ], 200);
+
+    }
 }
 

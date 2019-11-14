@@ -3,8 +3,8 @@ import React from 'react';
 /* COMPONENTS */
 import HeaderTop from '../components/HeaderTop';
 import HeaderBottom from '../components/HeaderBottom';
-
 import ProfileCard from '../components/ProfileCard';
+import FilterComponent from '../components/FilterComponent';
 
 class AdminView extends React.Component {
 
@@ -14,29 +14,50 @@ class AdminView extends React.Component {
 
         this.state = {
             isLoading: true,
-            data: "",
+            data: null,
+
+            filterF: null,
+            filterS: null,
+
             createGroup: false,
+            aside: false,
         };
         this.createGroup = this.createGroup.bind(this);
+        this.openFilter = this.openFilter.bind(this);
 
     }
 
     async componentDidMount() {
-        const response = await fetch(`http://hetic.adebayo.fr/api/users`);
-        const json = await response.json();
-        this.setState({ 
-            data : json,
-            isLoading: false
+        Promise.all([
+            fetch('http://hetic.adebayo.fr/api/users'),
+        ])
+        .then(([res1]) => Promise.all([res1.json()]))
+        .then(([data1]) => {
+
+            console.log(data1.result.users);
+
+            this.setState({
+                isLoading: false,
+                data: data1.result,
+            })
         });
     }
 
 
     createGroup(){
-        console.log(this);
-
         this.setState({
             createGroup: !this.state.createGroup
         })
+    }
+
+    openFilter(){
+        this.setState({
+            aside: !this.state.aside
+        })
+        
+        document.getElementById('buttonFilter').classList.toggle('active');
+        document.getElementById('adminAside').classList.toggle('open');
+        document.getElementById('adminContent').classList.toggle('open');
     }
     
 
@@ -49,7 +70,7 @@ class AdminView extends React.Component {
                 />
                 <HeaderBottom 
                     title='Team builder'
-                    menu='yes'
+                    functionSmallButton={this.openFilter}
                 />
             </section>
             { this.state.createGroup ?
@@ -83,26 +104,34 @@ class AdminView extends React.Component {
                 </div>
             : null
             }
-            <section className={'admin-content container-fluid'}>
+            <aside id={'adminAside'} className={'admin-aside'}>
+                <FilterComponent 
+                    titlePromotions='Promotions'
+                    titleCompetences='Compétences'
+                />
+            </aside>
+
+            <section id={'adminContent'} className={'admin-content container-fluid'}>
                 { this.state.isLoading ? 
                 <div className="ta-c">Loading students</div>
                 : 
                 <div>
-                    <p className={'admin-content__number'}>{this.state.data.result.total} utilisateurs</p>
+                    <p className={'admin-content__number'}>{this.state.data.total} utilisateurs</p>
                     <div className={'admin-content__cards d-f jc-around'}>
-                    
-                        {this.state.data.result.users.map( item => {
-                            return(
-                                <ProfileCard 
-                                    id= {item.id}
-                                    class= {item.formation} 
-                                    img =""
-                                    name= {item.first_name + ' ' + item.last_name}
-                                    job= {item.role}
-                                />
-                            )
-                        })}
-                        
+                        {this.state.filterF == null && this.state.filterS == null ? 
+                            this.state.data.users.map( item => {
+                                return(
+                                    <ProfileCard 
+                                        id= {item.id}
+                                        class= {item.formation} 
+                                        img =""
+                                        name= {item.first_name + ' ' + item.last_name}
+                                        job= {item.role}
+                                    />
+                                )
+                            })
+                        : <div>ok</div>
+                        }
                     </div>
                 </div>
                 

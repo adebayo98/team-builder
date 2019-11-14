@@ -1,17 +1,44 @@
 # Liste des routes de l'api
 
-##### Demander la liste formations
-* {domain}/api/formations
+##### Demander un jeton d'authentification
+* POST {domain}/api/user/credentials
 
-##### Demander la liste des skills
-* {domain}/api/skills
+##### Demander la liste formations
+* GET {domain}/api/formations
+
+##### Demander la liste des types de compétences
+* GET {domain}/api/skills
+
+##### Demander la liste des types de compétences
+* GET {domain}/api/skill/types
+
+##### Demander la liste des types de compétences
+* GET {domain}/api/skill/notes
+
+##### Ajouter ou modifer une compétence
+* POST {domain}/api/user/{user.id}/skill/{skill.id}/{note}
+
+##### Suprimer une compétence utilisateir
+* DELETE {domain}/api/user/{user.id}/skill/{skill.id}
+
+##### Inscription
+* POST {domain}/api/user/register
 
 ##### Demander la liste utilisateurs
-* {domain}/api/users
+* GET {domain}/api/users
+
+##### Demander la liste aléatoire d'utilisateur
+* GET {domain}/api/users/random/{limit}
 
 ##### Demander un utilisateur
-* {domain}/api/user/{user.id}
+* GET {domain}/api/user/{user.id}
+
+##### Demander les compétences d'un utilisateur
+* GET {domain}/api/user/{user.id}/skills
 
 ##### Demander une liste filtrer
-* {domain}/api/users/filter
+* GET {domain}/api/users/filter
+
+##### Mettre à jour un utilisateur
+* PUT {domain}/api/user/{user.id}
 

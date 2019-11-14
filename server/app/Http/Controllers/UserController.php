@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
-
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class UserController
@@ -18,6 +18,101 @@ use Illuminate\Support\Facades\Cache;
  */
 class UserController extends Controller
 {
+    public function rolesList()
+    {
+        if (!Cache::has('app_roles_list')) {
+            $types = DB::select('SELECT DISTINCT role FROM users');
+            Cache::put('app_roles_list', $types, now()->addMinutes(60 * 24));
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'message' => 'ok',
+                'result' => [
+                    'skill_types' => Cache::get('app_roles_list'),
+                    'total' => count(Cache::get('app_roles_list'))
+                ]
+            ], 200);
+    }
+
+    /**
+     * Register new user
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        // Validate request data
+        $validation = Validator::make($request->request->all(), User::registerRules());
+        if ($validation->fails()){
+            return response()
+                ->json([
+                    'status' => 'failure',
+                    'message' => 'Request meets validation errors',
+                    'code' => 2,
+                    'error' => $validation->errors()->messages()
+                ], 400);
+        }
+
+        // Create user
+        $request->request->set('role', 'student');
+        $request->request->set('password', bcrypt($request->request->get('password')));
+        $user = User::create($request->request->all());
+
+        // Return successful response
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'user' => $user
+                ]
+            ], 200);
+    }
+
+    /**
+     * Edit an user.
+     *
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit($id, Request $request)
+    {
+        $request->request->remove('email');
+        User::where('id', $id)->update($request->request->all());
+        // Return successful response
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'user' => User::find($id)
+                ]
+            ], 200);
+    }
+
+    /**
+     * Get a users skills
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function userSkills(int $id)
+    {
+        $skills = User::find($id)->skills()->get();
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'skills' => $skills->toArray()
+                ]
+            ], 200);
+    }
+
     /**
      * Filter users
      *
@@ -54,7 +149,8 @@ class UserController extends Controller
             ->when($role, function ($query, $role){
                 return $query->whereIn('users.role', '=', $role);
             })
-            ->orderBy('users.first_name', 'asc')
+            ->inRandomOrder()
+                // ->orderBy('users.first_name', 'asc')
             ->get();
 
         // Return response
@@ -81,7 +177,8 @@ class UserController extends Controller
                 ->join('formations', 'formations.id', '=', 'users.formation_id')
                 ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
                 ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
-                ->orderBy('users.first_name', 'asc')
+                ->inRandomOrder()
+                // ->orderBy('users.first_name', 'asc')
                 ->get();
             Cache::put('app_user_list', $users, now()->addMinutes(60 * 24));
         }
@@ -93,6 +190,32 @@ class UserController extends Controller
                 'result' => [
                     'users' => Cache::get('app_user_list'),
                     'total' => count(Cache::get('app_user_list'))
+                ]
+            ], 200);
+    }
+
+    /**
+     * Get user random list.
+     *
+     * @param int $limit
+     * @return mixed
+     */
+    public function usersRandom(int $limit)
+    {
+        $users = DB::table('users')
+            ->join('formations', 'formations.id', '=', 'users.formation_id')
+            ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
+            ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
+            ->inRandomOrder()
+            ->limit($limit)
+            ->get();
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'users' => $users
                 ]
             ], 200);
     }
@@ -140,6 +263,66 @@ class UserController extends Controller
                 'code' => '1',
                 'result' => [
                     'user' => $user,
+                ]
+            ], 200);
+    }
+
+    /**
+     * Create or update an user skills
+     *
+     * @param $userId
+     * @param $skillID
+     * @param $note
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addUserSkills($userId, $skillID, $note)
+    {
+        // Check if skills exist
+        $skill = DB::table('user_skill')
+            ->where('user_id', $userId)
+            ->where('skill_id', $skillID);
+
+        if ($skill){
+            $skill->update(['note' => $note]);
+        }else{
+            DB::table('user_skill')
+                ->insert([
+                    'user_id' => $userId,
+                    'skill_id' => $skillID,
+                    'note' => $note
+                ]);
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'skills' => User::find($userId)->skills()->get()->toArray()
+                ]
+            ], 200);
+    }
+
+    /**
+     * Delete an user skills
+     *
+     * @param $userId
+     * @param $skillID
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteUserSkills($userId, $skillID)
+    {
+        DB::table('user_skill')
+            ->where('user_id', $userId)
+            ->where('skill_id', $skillID)
+            ->delete();
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'skills' => User::find($userId)->skills()->get()->toArray()
                 ]
             ], 200);
     }
