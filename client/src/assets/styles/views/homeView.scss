@@ -7,6 +7,7 @@
         justify-content: space-between;
         padding-top: 40px;
         padding-bottom: 40px;
+        pointer-events: none;
 
         .profile-card:nth-child(2n+1){
             align-self: flex-end;
