@@ -200,7 +200,8 @@ class UserController extends Controller
             $users = DB::table('users')
                 ->join('formations', 'formations.id', '=', 'users.formation_id')
                 ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
-                ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
+                ->join('skills', 'skills.id', '=', 'users.main_skill_id')
+                ->select('users.id as id','users.photo_url', 'users.last_name', 'users.first_name', 'users.role', 'skills.name as main_skill', 'formations.code as formation', 'promotions.name as promotion')
                 ->inRandomOrder()
                 ->get();
             Cache::put('app_user_list', $users, now()->addMinutes(60 * 24));
@@ -228,7 +229,8 @@ class UserController extends Controller
         $users = DB::table('users')
             ->join('formations', 'formations.id', '=', 'users.formation_id')
             ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
-            ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'formations.code as formation', 'promotions.name as promotion')
+            ->join('skills', 'skills.id', '=', 'users.main_skill_id')
+            ->select('users.id as id','users.photo_url', 'users.role', 'users.last_name', 'users.first_name', 'skills.name as main_skill', 'formations.code as formation', 'promotions.name as promotion')
             ->inRandomOrder()
             ->limit($limit)
             ->get();
@@ -254,6 +256,7 @@ class UserController extends Controller
         $user =  DB::table('users')
             ->join('formations', 'formations.id', '=', 'users.formation_id')
             ->join('promotions', 'promotions.id', '=', 'users.promotion_id')
+            ->join('skills', 'skills.id', '=', 'users.main_skill_id')
             ->select(
                 'users.id',
                 'users.photo_url',
@@ -265,6 +268,7 @@ class UserController extends Controller
                 'users.personal_email',
                 'users.description',
                 'users.role',
+                'skills.name as main_skill',
                 'formations.code as formation',
                 'promotions.name as promotion'
             )
