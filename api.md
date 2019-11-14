@@ -1,6 +1,6 @@
 # Liste des routes de l'api
 
-##### Demander un jeton
+##### Demander un jeton d'authentification
 * POST {domain}/api/user/credentials
 
 ##### Demander la liste formations
@@ -14,6 +14,9 @@
 
 ##### Demander la liste des types de compétences
 * GET {domain}/api/skill/notes
+
+##### Inscription
+* POST {domain}/api/user/register
 
 ##### Demander la liste utilisateurs
 * GET {domain}/api/users

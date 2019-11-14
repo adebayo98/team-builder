@@ -29,9 +29,11 @@ class User extends Authenticatable
         'first_name',
         'gender',
         'email',
+        'password',
         'personal_email',
         'phone',
         'description',
+        'role',
         'updated_at'
     ];
 
@@ -52,6 +54,25 @@ class User extends Authenticatable
     protected $casts = [
 
     ];
+
+    /**
+     * User register rules.
+     *
+     * @return array
+     */
+    public static function registerRules()
+    {
+        return [
+            'last_name' =>  'required',
+            'first_name' =>  'required',
+            'email' =>  'required|email|regex:#@hetic.net$#|unique:users',
+            'personal_email' => 'required|email|unique:users',
+            'phone' =>  'required',
+            'promotion_id' => 'required',
+            'formation_id' => 'required',
+            'password' => 'required',
+        ];
+    }
 
     /**
      * The skills that belong to the user.

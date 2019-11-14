@@ -35,7 +35,7 @@ class CredentialController extends Controller
                     'message' => 'Request meets validation errors',
                     'code' => 2,
                     'error' => $validation->errors()->messages()
-                ], 404);
+                ], 400);
         }
 
         // Check if email and password match
@@ -49,7 +49,7 @@ class CredentialController extends Controller
                     'error' => [
                         'global' => 'Adresse email ou mot de passe incorrect.'
                     ]
-                ], 404);
+                ], 400);
         }
 
         // Return successful response

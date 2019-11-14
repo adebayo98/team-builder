@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
-
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class UserController
@@ -18,6 +18,36 @@ use Illuminate\Support\Facades\Cache;
  */
 class UserController extends Controller
 {
+
+    public function register(Request $request)
+    {
+        // Validate request data
+        $validation = Validator::make($request->request->all(), User::registerRules());
+        if ($validation->fails()){
+            return response()
+                ->json([
+                    'status' => 'failure',
+                    'message' => 'Request meets validation errors',
+                    'code' => 2,
+                    'error' => $validation->errors()->messages()
+                ], 400);
+        }
+
+        // Create user
+        $request->request->set('role', 'student');
+        $request->request->set('password', bcrypt($request->request->get('password')));
+        $user = User::create($request->request->all());
+
+        // Return successful response
+        return response()
+            ->json([
+                'status' => 'success',
+                'code' => '1',
+                'result' => [
+                    'user' => $user
+                ]
+            ], 200);
+    }
 
     /**
      * Get a users skills

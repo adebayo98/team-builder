@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::post('/user/credentials', 'CredentialController@login')
     ->name('app_user_login');
 
+// User Register
+Route::post('/user/register', 'UserController@register')
+    ->name('app_user_register');
+
 // User list filter
 Route::get('/users/filter', 'UserController@usersFilter')
     ->name('app_user_filter');
