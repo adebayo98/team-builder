@@ -66,10 +66,10 @@ class HomeView extends React.Component {
                     return(
                         <ProfileCard
                             id= {item.id}
-                            formation= {item.formation} 
-                            img =""
-                            name= {item.first_name + ' ' + item.last_name}
-                            job= {item.role}
+                            formation={item.formation}
+                            img={item.photo_url}
+                            name={item.first_name + ' ' + item.last_name}
+                            job={item.role}
                         />
                     )
                 })}

@@ -120,11 +120,11 @@ class AdminView extends React.Component {
                                 return(
                                     <ProfileCard 
                                         class={item.formation + ' ' + item.role}
-                                        id= {item.id}
-                                        formation= {item.formation} 
-                                        img =""
-                                        name= {item.first_name + ' ' + item.last_name}
-                                        job= {item.role}
+                                        id={item.id}
+                                        formation={item.formation}
+                                        img={item.photo_url}
+                                        name={item.first_name + ' ' + item.last_name}
+                                        job={item.role}
                                     />
                                 )
                             })
