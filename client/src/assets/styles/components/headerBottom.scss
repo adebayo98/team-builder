@@ -1,8 +1,8 @@
 .header-bottom{
-    flex-direction: column;
     width: 100%;
     background-color: $grey;
     justify-content: space-between;
+    align-items: center;
 
     &__title{
         margin: 32px 0;
@@ -10,48 +10,31 @@
         font-size: 24px;
         font-weight: bold;
     }
-
-    &__content{
-        align-items: end;
-        justify-content: space-between;
-
-        ul {
-
-            li{
-                margin-right: 32px;
-                font-size: 16px;
-                font-weight: 300;
-                color: white;
-                padding-bottom: 10px;
-                cursor: pointer;
-                border-bottom: solid 2px transparent;
-
-                &:hover{
-                    color: $green;
-                    border-bottom-color: $green;
-                }
-            }
+    .button-second{
+        background: $grey;
+        border: 1px solid #FFFFFF;
+        border-radius: 8px;
+        padding: 3px;
+    
+        &:hover {
+            background: $grey-hover;
         }
-
-        .buttons{
-            margin-bottom: 10px;
-
-            .button-second{
-                color: white;
-                background: $grey;
-                border: 1px solid #FFFFFF;
-                border-radius: 8px;
-                padding: 3px;
     
-                &:hover {
-                    background: $grey-hover;
-                }
-    
-                img {
-                    width: 20px;
-                }
-            }
-
+        svg {
+            width: 20px;
+            height: 20px;
         }
     }
+
+    .button-second.active{
+        border-color: $green;
+
+        svg{
+
+            path{
+                fill: $green;
+            }
+        }
+    }
+
 }

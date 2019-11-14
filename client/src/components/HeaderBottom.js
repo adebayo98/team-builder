@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 /* COMPONENTS */
 
-import Filter from '../assets/img/icons/filter.svg';
 
 class HeaderBottom extends Component {
 
@@ -18,21 +17,11 @@ class HeaderBottom extends Component {
         return(
             <div className={'header-bottom d-f container-fluid'}>
                 <h1 className={'header-bottom__title'}>{this.props.title}</h1>
-                { this.props.menu ?
-                <div className={'header-bottom__content d-f'}>
-                    <ul className={'d-f'}>
-                        <li>ALL</li>
-                        <li>ÉLÈVES</li>
-                        <li>INTERVENANTS</li>
-                    </ul>
-
-                    <div className={'buttons'}>
-                        <button className={'button-second'}>
-                            <img src={Filter} />
-                        </button>
-                    </div>
-                </div>
-                :null }
+                <button id={'buttonFilter'} className={'button-second'} onClick={this.props.functionSmallButton}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 18H13C13.55 18 14 17.55 14 17C14 16.45 13.55 16 13 16H11C10.45 16 10 16.45 10 17C10 17.55 10.45 18 11 18ZM3 7C3 7.55 3.45 8 4 8H20C20.55 8 21 7.55 21 7C21 6.45 20.55 6 20 6H4C3.45 6 3 6.45 3 7ZM7 13H17C17.55 13 18 12.55 18 12C18 11.45 17.55 11 17 11H7C6.45 11 6 11.45 6 12C6 12.55 6.45 13 7 13Z" fill="white"/>
+                    </svg>
+                </button>
             </div>
         );
     }
