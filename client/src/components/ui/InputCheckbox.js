@@ -23,7 +23,7 @@ class InputCheckbox extends React.Component{
                     name='filter[]'
                     onClick={this.props.function}
                     data-filter={this.props.dataFilter}
-                    data-value={this.props.label}
+                    data-value={this.props.value}
                 />
                 {/* Error */}
                 <p className={'input-email-component__error ' + (props.error ? '' : '_hide')}>{props.error}</p>

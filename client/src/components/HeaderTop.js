@@ -9,7 +9,7 @@ class HeaderTop extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+
         };
     }
 
@@ -27,7 +27,9 @@ class HeaderTop extends Component {
                     buttonReturn=""
                     functionBtn={this.props.functionButton}
                 />
-                <ProfileHeader />
+                <ProfileHeader 
+                    currentUser={this.state.currentUser}
+                />
             </div>
         );
     }

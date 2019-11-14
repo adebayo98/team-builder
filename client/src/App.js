@@ -22,10 +22,10 @@ class App extends React.Component {
   render() {
       return(
           <Router>
-              <Route exact path="/">
+              <Route exact path="/login">
                 <HomeView />
               </Route>
-              <Route exact path="/admin">
+              <Route exact path="/">
                 <AdminView />
               </Route>
               <Route exact path="/profile">

@@ -16,7 +16,7 @@ class HomeView extends React.Component {
             cards: [],
             email: null,
             password: null,
-            error: {}
+            error: {},
         }
     }
 
@@ -49,10 +49,9 @@ class HomeView extends React.Component {
                 let idStudent = JSON.parse(localStorage.getItem('userData')).uid;
 
                 if(role !== 'student'){
-                    window.location.href = '/admin';
+                    window.location.href = '/';
                 } else {
-                    // window.location.href= '/profile?id='+role;
-                    console.log(idStudent);
+                    window.location.href= '/profile?id='+idStudent;
                 }
             }
         })

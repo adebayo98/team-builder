@@ -6,6 +6,9 @@ import HeaderBottom from '../components/HeaderBottom';
 import ProfileCard from '../components/ProfileCard';
 import FilterComponent from '../components/FilterComponent';
 
+/* HELPERS */
+import SessionHelpers from '../helpers/SessionHelper';
+
 class AdminView extends React.Component {
 
     constructor(props) {
@@ -37,6 +40,15 @@ class AdminView extends React.Component {
                 isLoading: false,
                 users: data1.result.users,
             })
+        });
+
+        /* AUTH */
+        if(SessionHelpers.isAuth() == false) {
+            window.location.href = '/login';
+        }
+
+        this.setState({
+            currentUser: SessionHelpers.userData().role
         });
     }
 
