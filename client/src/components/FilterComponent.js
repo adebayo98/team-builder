@@ -91,6 +91,7 @@ class Filter extends Component {
                                             label = {item.code}
                                             function={this.bindFilter}
                                             dataFilter="formation"
+                                            value={item.code}
                                         />
                                     )
                                 })}
