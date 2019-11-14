@@ -77,3 +77,7 @@ Route::get('/skill/notes', 'SkillController@skillNotes')
 // Formations
 Route::get('/formations', 'FormationController@formations')
     ->name('app_formation_list');
+
+// Groups
+Route::get('/groups/{name}/', 'FormationController@formations')
+    ->name('app_group_creation');

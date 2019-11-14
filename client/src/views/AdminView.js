@@ -15,10 +15,8 @@ class AdminView extends React.Component {
         this.state = {
             isLoading: true,
             data: null,
-
             filterF: null,
             filterS: null,
-
             createGroup: false,
             aside: false,
         };
