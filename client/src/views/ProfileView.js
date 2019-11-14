@@ -176,6 +176,10 @@ class ProfileView extends React.Component {
                 })
             }
         })
+
+        this.setState(state => ({
+            addCompetence: !state.addCompetence
+        }));
     }
 
     toggleModify = () => {
