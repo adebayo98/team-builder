@@ -47,9 +47,23 @@
         }
     }
     
+    .admin-aside{
+        position: fixed;
+        right: 0;
+        width: 0;
+        height: 100vh;
+        overflow-x: hidden;
+        transition: .5s;
+    }
+
+    .admin-aside.open{
+        width: 224px;
+    }
 
     .admin-content{
-        margin-top: 218px;
+        margin-top: 168px;
+        padding-top: 24px;
+        transition: margin-right .5s;
 
         &__number{
             font-weight: bold;
@@ -65,5 +79,9 @@
                 margin-right: 32px;
             }
         }
+    }
+
+    .admin-content.open{
+        margin-right: 224px
     }
 }
