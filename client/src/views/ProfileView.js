@@ -5,7 +5,6 @@ import HeaderTop from '../components/HeaderTop';
 import HeaderBottom from '../components/HeaderBottom';
 import InputSelect from '../components/ui/InputSelect';
 
-import ProfilePic from '../assets/img/profile-pic.jpg';
 import add from '../assets/img/icons/add-green.svg'
 import edit from '../assets/img/icons/edit.svg'
 import imgPlaceholder from '../assets/img/img-placeholder.png'
@@ -259,7 +258,7 @@ class ProfileView extends React.Component {
                     <form onSubmit={this.saveProfile}>
                         <div className="container">
                             <div className="row ai-center jc-between mt-md">
-                                <div className="title-md">Personal informations</div>
+                                <div className="title-md">Informations personelle</div>
                                 { this.state.editing ? null : 
                                     <button onClick={this.editClick} className="edit-profile c-green d-f ai-center">Edit profil <img className="ml-xs" src={edit}/></button>
                                 }
