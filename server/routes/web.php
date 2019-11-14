@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +14,5 @@
 */
 
 Route::get('/', function () {
-
-    $client = new \GuzzleHttp\Client();
-    $response = $client->request('GET', 'https://api.unsplash.com/users/photos');
-    dump($response->getBody());
-
-    die;
     echo "<center> <h1> Team builder api </h1> </center>";
 });
