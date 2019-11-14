@@ -60,7 +60,9 @@ class CredentialController extends Controller
         $jws->setPayload(array(
             'uid' => $user['id'],
             'exp' => Carbon::now()->addHours(2)->format('U'),
-            'email' => $user['email'],
+            'photo_url' => $user['photo_url'],
+            'last_name' => $user['last_name'],
+            'first_name' => $user['first_name'],
             'role' => $user['role'],
         ));
 
