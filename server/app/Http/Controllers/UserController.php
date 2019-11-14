@@ -18,6 +18,24 @@ use Illuminate\Support\Facades\Validator;
  */
 class UserController extends Controller
 {
+    public function rolesList()
+    {
+        if (!Cache::has('app_roles_list')) {
+            $types = DB::select('SELECT DISTINCT role FROM users');
+            Cache::put('app_roles_list', $types, now()->addMinutes(60 * 24));
+        }
+
+        return response()
+            ->json([
+                'status' => 'success',
+                'message' => 'ok',
+                'result' => [
+                    'skill_types' => Cache::get('app_roles_list'),
+                    'total' => count(Cache::get('app_roles_list'))
+                ]
+            ], 200);
+    }
+
     /**
      * Register new user
      *

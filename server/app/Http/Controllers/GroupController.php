@@ -26,7 +26,8 @@ class GroupController extends Controller
      */
     public function build(Request $request)
     {
+
     }
-    
+
 }
 

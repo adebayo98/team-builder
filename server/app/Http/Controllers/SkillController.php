@@ -65,7 +65,6 @@ class SkillController extends Controller
                     'total' => count(Cache::get('app_skill_types_list'))
                 ]
             ], 200);
-
     }
 
     /**

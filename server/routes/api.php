@@ -22,6 +22,10 @@ Route::post('/user/credentials', 'CredentialController@login')
 Route::post('/user/register', 'UserController@register')
     ->name('app_user_register');
 
+// User Register
+Route::get('/roles', 'UserController@rolesList')
+    ->name('app_roles_list');
+
 // User list filter
 Route::get('/users/filter', 'UserController@usersFilter')
     ->name('app_user_filter');
