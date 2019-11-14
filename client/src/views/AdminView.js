@@ -14,7 +14,7 @@ class AdminView extends React.Component {
 
         this.state = {
             isLoading: true,
-            data: "",
+            data: null,
 
             filterF: null,
             filterS: null,
@@ -113,19 +113,20 @@ class AdminView extends React.Component {
                 <div>
                     <p className={'admin-content__number'}>{this.state.data.total} utilisateurs</p>
                     <div className={'admin-content__cards d-f jc-around'}>
-                    
-                        {this.state.data.users.map( item => {
-                            return(
-                                <ProfileCard 
-                                    id= {item.id}
-                                    class= {item.formation} 
-                                    img =""
-                                    name= {item.first_name + ' ' + item.last_name}
-                                    job= {item.role}
-                                />
-                            )
-                        })}
-                        
+                        {this.state.filterF == null && this.state.filterS == null ? 
+                            this.state.data.users.map( item => {
+                                return(
+                                    <ProfileCard 
+                                        id= {item.id}
+                                        class= {item.formation} 
+                                        img =""
+                                        name= {item.first_name + ' ' + item.last_name}
+                                        job= {item.role}
+                                    />
+                                )
+                            })
+                        : <div>ok</div>
+                        }
                     </div>
                 </div>
                 

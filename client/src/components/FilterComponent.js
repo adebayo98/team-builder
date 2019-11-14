@@ -9,7 +9,7 @@ class Filter extends Component {
         super(props);
         this.state = {
             isLoading: true,
-            formations:[],
+            formations:"",
             skills: "",
         };
     }
