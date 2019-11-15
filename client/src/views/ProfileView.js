@@ -184,10 +184,11 @@ class ProfileView extends React.Component {
         }));
     }
 
-    toggleModify = () => {
+    toggleModify = (event) => {
         this.setState({
           showModify: !this.state.showModify
         })
+        console.log(event.target.nextSibling)
       }
 
     saveProfile(event){
@@ -414,12 +415,10 @@ class ProfileView extends React.Component {
                                             <div className="rank">{value.pivot.note}</div>
                                             <div className="modify-icon">
                                                 <img src={modifyIcon} onClick={this.toggleModify} alt=""/>
-                                                { this.state.showModify ? 
-                                                <div className={"popup-modify " + index}>
+                                                <div className={"popup-modify"} data-index={index}>
                                                     <div className="item">Modifier</div>
                                                     <div className="item">Supprimer</div>
                                                 </div>
-                                                : null}
                                             </div>
                                             <div className="ta-c">
                                                 <img className="icon" src={"http://hetic.adebayo.fr" + value.icon} alt=""/>
