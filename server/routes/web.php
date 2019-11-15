@@ -15,11 +15,4 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     echo "<center> <h1> Team builder api </h1> </center>";
-    $users = DB::table('users')->get('id');
-
-    foreach ($users as $user){
-        DB::table('users')
-            ->where('id', '=', $user->id)
-            ->update(['main_skill_id' => rand(12, 16)]);
-    }
 });
