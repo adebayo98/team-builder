@@ -5,6 +5,8 @@ import HeaderTop from '../components/HeaderTop';
 import HeaderBottom from '../components/HeaderBottom';
 import InputSelect from '../components/ui/InputSelect';
 
+/* IMAGE */
+import LogoLoader from '../assets/img/logo_loader.svg';
 import add from '../assets/img/icons/add-green.svg'
 import edit from '../assets/img/icons/edit.svg'
 import imgPlaceholder from '../assets/img/img-placeholder.png'
@@ -256,7 +258,12 @@ class ProfileView extends React.Component {
                 : null
                 }
 
-                { this.state.isLoading ? <div className="ta-c">Loading infos</div> :
+                { this.state.isLoading ? 
+                <div>
+                    <img src={LogoLoader} className={'profile-view__load'}></img>
+                    <p className={'profile-view__loadText'}>Veuillez patienter</p>
+                </div> 
+                :
                 <div className={ this.state.editing ? 'editing' : null}>
                 
                     <form onSubmit={this.saveProfile}>

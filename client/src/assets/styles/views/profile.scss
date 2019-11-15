@@ -5,6 +5,33 @@
 
 .profile-view{
     padding-bottom: 30px;
+
+    &__load{
+        margin: auto;
+        width: 15em;
+        -webkit-animation: rotation 6s infinite linear;
+        animation: rotation 6s infinite linear;
+        @-webkit-keyframes rotation {
+            0% {-webkit-transform: rotate(0deg);}
+            12.5%, 25% {-webkit-transform: rotate(90deg);} 
+            37.5%, 50% {-webkit-transform: rotate(180deg);} 
+            62.5%, 75% {-webkit-transform: rotate(270deg);} 
+            87.5%, 100% {-webkit-transform: rotate(360deg);}
+        }
+
+        @keyframes rotation {
+            0% {-webkit-transform: rotate(0deg);}
+            12.5%, 25% {-webkit-transform: rotate(90deg);} 
+            37.5%, 50% {-webkit-transform: rotate(180deg);} 
+            62.5%, 75% {-webkit-transform: rotate(270deg);} 
+            87.5%, 100% {-webkit-transform: rotate(360deg);}
+        }
+    }
+
+    &__loadText{
+        margin-top: 20px;
+        text-align: center;
+    }
 }
 
 .profile-image{

@@ -6,6 +6,9 @@ import HeaderBottom from '../components/HeaderBottom';
 import ProfileCard from '../components/ProfileCard';
 import FilterComponent from '../components/FilterComponent';
 
+/* IMAGE */
+import LogoLoader from '../assets/img/logo_loader.svg';
+
 /* HELPERS */
 import SessionHelpers from '../helpers/SessionHelper';
 
@@ -123,8 +126,11 @@ class AdminView extends React.Component {
             </aside>
 
             <section id={'adminContent'} className={'admin-content container-fluid'}>
-                { this.state.isLoading ? 
-                <div className="ta-c">Loading students</div>
+                { this.state.isLoading ?
+                <div>
+                    <img src={LogoLoader} className={'admin-content__load'}></img>
+                    <p className={'admin-content__loadText'}>Veuillez patienter</p>
+                </div>
                 : 
                 <div>
                     <p className={'admin-content__number'}>{this.state.users.length} utilisateurs</p>
