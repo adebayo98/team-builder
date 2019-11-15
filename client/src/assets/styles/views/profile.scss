@@ -8,7 +8,7 @@
 
     &__load{
         margin: auto;
-        width: 15em;
+        width: 9em;
         -webkit-animation: rotation 6s infinite linear;
         animation: rotation 6s infinite linear;
         @-webkit-keyframes rotation {
@@ -130,6 +130,13 @@ form{
         position: absolute;
         left: 10px;
         top: 10px;
+        color: #00FF97;
+        border: solid 1px #00FF97;
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        padding-left: 6px;
+        padding-top: 4px;
     }
 
     .popup-modify{
@@ -142,6 +149,14 @@ form{
         border-radius: 8px;
 
         overflow: hidden;
+
+        opacity: 0;
+
+        transition: .3s all;
+
+        &.active{
+            opacity: 1;
+        }
 
         .item{
             color: white;

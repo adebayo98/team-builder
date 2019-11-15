@@ -22,7 +22,8 @@
         .option-list__items{
             margin: 0;
 
-            overflow: hidden;    
+            overflow: scroll;   
+            height: 200px; 
             display: block;
             position: absolute;
             z-index: 1;
