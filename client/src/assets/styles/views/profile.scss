@@ -143,6 +143,14 @@ form{
 
         overflow: hidden;
 
+        opacity: 0;
+
+        transition: .3s all;
+
+        &.active{
+            opacity: 1;
+        }
+
         .item{
             color: white;
 
