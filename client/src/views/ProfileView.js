@@ -188,7 +188,9 @@ class ProfileView extends React.Component {
         this.setState({
           showModify: !this.state.showModify
         })
-        console.log(event.target.nextSibling)
+        var index = event.target.nextSibling.getAttribute('data-index')
+        var element = document.querySelector(`[data-index='${index}']`);
+        element.classList.toggle('active');
       }
 
     saveProfile(event){
@@ -411,12 +413,12 @@ class ProfileView extends React.Component {
                                 
                                 {this.state.competences.map((value, index) => {
                                     return(
-                                        <div key={index} className="competences-item">
+                                        <div key={index} className="competences-item" data-card={index}>
                                             <div className="rank">{value.pivot.note}</div>
                                             <div className="modify-icon">
                                                 <img src={modifyIcon} onClick={this.toggleModify} alt=""/>
                                                 <div className={"popup-modify"} data-index={index}>
-                                                    <div className="item">Modifier</div>
+                                                    <div className="item" onClick={this.addCompetence}>Modifier</div>
                                                     <div className="item">Supprimer</div>
                                                 </div>
                                             </div>
