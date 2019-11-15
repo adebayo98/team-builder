@@ -222,7 +222,7 @@ class ProfileView extends React.Component {
     render(){
         return(
             <div className={'profile-view'}>
-                <section className={'profile-header'}>
+                <section className={'profile-view__header'}>
                     <HeaderTop />
                     <HeaderBottom 
                         title={this.state.name}
@@ -259,12 +259,12 @@ class ProfileView extends React.Component {
                 }
 
                 { this.state.isLoading ? 
-                <div>
+                <div className={'profile-content'}>
                     <img src={LogoLoader} className={'profile-view__load'}></img>
                     <p className={'profile-view__loadText'}>Veuillez patienter</p>
                 </div> 
                 :
-                <div className={ this.state.editing ? 'editing' : null}>
+                <div className={'profile-content ' + (this.state.editing ? 'editing' : null)}>
                 
                     <form onSubmit={this.saveProfile}>
                         <div className="container">
@@ -284,7 +284,7 @@ class ProfileView extends React.Component {
                                 
                                 : 
                                 <div className="row mt-md">
-                                    <div className="profile-image" style={{backgroundImage: `url(${this.state.imageProfile}`}}>
+                                    <div className="profile-image" style={{backgroundImage: `url(http://hetic.adebayo.fr${this.state.imageProfile}`}}>
                                     </div> 
                                 </div>    
                             }
@@ -415,7 +415,7 @@ class ProfileView extends React.Component {
                                             <div className="modify-icon">
                                                 <img src={modifyIcon} onClick={this.toggleModify} alt=""/>
                                                 { this.state.showModify ? 
-                                                <div className="popup-modify">
+                                                <div className={"popup-modify " + index}>
                                                     <div className="item">Modifier</div>
                                                     <div className="item">Supprimer</div>
                                                 </div>
