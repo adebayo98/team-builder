@@ -5,9 +5,13 @@
         flex: 2;
         flex-direction: column;
         justify-content: space-between;
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         pointer-events: none;
+
+        .profile-card{
+            margin: 10px 0;
+        }
 
         .profile-card:nth-child(2n+1){
             align-self: flex-end;
