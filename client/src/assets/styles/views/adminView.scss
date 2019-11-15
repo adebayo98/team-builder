@@ -51,9 +51,12 @@
         position: fixed;
         right: 0;
         width: 0;
-        height: 100vh;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        height: calc(100vh - 169px);
         overflow-x: hidden;
         transition: .5s;
+        background-color: $very-light-grey;
     }
 
     .admin-aside.open{

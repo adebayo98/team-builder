@@ -108,6 +108,16 @@ class Filter extends Component {
                                     />
                                 )
                             })}
+                            {this.state.roles.skill_types.map( item => {
+                                return(
+                                    <InputCheckbox 
+                                        label = {RolesTranslator(item.role)}
+                                        function={this.bindFilter}
+                                        dataFilter="role"
+                                        value={item.role}
+                                    />
+                                )
+                            })}
                         </div>
                     </form>
                 }

@@ -32,6 +32,18 @@
         margin-top: 20px;
         text-align: center;
     }
+
+    &__header{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .profile-content{
+        margin-top: 168px;
+        padding-top: 24px;
+    }
 }
 
 .profile-image{
@@ -125,6 +137,7 @@ form{
 
         left: 100%;
         top: 100%;
+        transform: translateX(-100%);
 
         border-radius: 8px;
 
