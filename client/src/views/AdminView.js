@@ -143,7 +143,7 @@ class AdminView extends React.Component {
                                         formation={item.formation}
                                         img={item.photo_url}
                                         name={item.first_name + ' ' + item.last_name}
-                                        job={item.role}
+                                        job={item.main_skill}
                                     />
                                 )
                             })}

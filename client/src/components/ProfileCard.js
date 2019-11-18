@@ -18,7 +18,7 @@ class ProfileCard extends Component {
                     <p className={'profile-card__class'}>{this.props.formation}</p>
                     <div className={'profile-card__img'} style={{backgroundImage: `url(${'http://hetic.adebayo.fr' + this.props.img}`}}></div>
                     <p className={'profile-card__name'}>{this.props.name}</p>
-                    <p className={'profile-card__job'}>{RolesTranslator(this.props.job)}</p>
+                    <p className={'profile-card__job'}>{this.props.job}</p>
             </Link>
         );
     }
