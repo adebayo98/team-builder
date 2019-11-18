@@ -104,7 +104,7 @@ class Filter extends Component {
                                         label = {RolesTranslator(item.role)}
                                         function={this.bindFilter}
                                         dataFilter="role"
-                                        value={item.main_skill}
+                                        value={item.role}
                                     />
                                 )
                             })}
