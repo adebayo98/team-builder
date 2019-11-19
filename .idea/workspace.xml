@@ -2,8 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d5c1b1b-0cf0-461e-a401-15c1aeb170c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/assets/style/pages/login.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/UserCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/pages/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/style/components/user-card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/sass/ui/inputs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/headerBottom.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/headerTop.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/profileCard.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/profileHeader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/ui/buttonComponent.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/ui/inputEmail.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/ui/inputPassword.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/ui/inputText.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/components/ui/smallButton.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/grid/flexboxgrid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/layout/_btn.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/layout/_colors.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/layout/_fonts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/layout/_helpers.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/layout/_layout.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/layout/_reset.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/layout/_text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/style.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/views/adminView.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/views/homeView.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/styles/views/profile.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/HeaderBottom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/HeaderTop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ProfileCard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ProfileHeader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +149,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/assets" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -120,6 +157,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/assets" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -147,7 +189,7 @@
       <workItem from="1573075385695" duration="13991000" />
       <workItem from="1573855578833" duration="516000" />
       <workItem from="1573992069898" duration="25000" />
-      <workItem from="1574197947149" duration="165000" />
+      <workItem from="1574197947149" duration="3269000" />
     </task>
     <servers />
   </component>
