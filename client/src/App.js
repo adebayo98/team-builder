@@ -1,12 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './assets/styles/style.scss';
-
-/* VIEWS */
-
-import HomeView from './views/HomeView';
-import AdminView from './views/AdminView';
-import ProfileView from './views/ProfileView';
+import Login from './pages/Login';
 
 
 class App extends React.Component {
@@ -20,15 +14,8 @@ class App extends React.Component {
   render() {
       return(
           <Router>
-              <Route exact path="/">
-                <HomeView />
-              </Route>
-              <Route exact path="/admin">
-                <AdminView />
-              </Route>
-              <Route exact path="/profile">
-                <ProfileView />
-              </Route>
+              <Route path="/login" component={Login} />
+              {/*<Route exact path="/signin" component={() => <SingleFormLayout content={<SignInView/>} />} />*/}
           </Router>
       );
   }

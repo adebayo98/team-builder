@@ -1,0 +1,56 @@
+// First title
+%title-1{
+    margin: 0;
+    padding: 0;
+    color: $grey-main;
+    font-size: 30px;
+    line-height: 34px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @include tabletLandscape{
+        font-size: 25px;
+        line-height: 29px;
+    }
+}
+
+// Second title
+%title-2{
+    margin: 0 0 0;
+    padding: 0;
+    color: $green-main;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 500;
+    font-family: $oswald-font-family;
+    text-transform: uppercase;
+}
+
+// Third title
+%title-3{
+    display: block;
+    color: $grey-dark;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 300;
+    font-family: $oswald-font-family;
+    text-transform: uppercase;
+
+    &.has-title-bf{
+        position: relative;
+        &:before{
+            content: '|';
+            margin-right: 5px;
+        }
+    }
+}
+
+// Fourth title
+%title-4{
+    display: block;
+}
+
+// Last title
+%title-5{
+    display: block;
+}

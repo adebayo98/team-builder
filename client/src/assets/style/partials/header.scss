@@ -1,0 +1,228 @@
+.header-partial{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+
+    /* header upper area */
+    $login-form-break: 1150px;
+    .header-upper-area{
+        width: 100%;
+        height: $header-d-hgt;
+        background-color: $theme-color-1;
+
+        //@include media($login-form-break){
+        //    height: $header-tl-hgt;
+        //}
+
+        @include tabletLandscape{
+            height: $header-tl-hgt;
+        }
+
+        /* header upper area content */
+        &__content{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+
+            /* header logo */
+            .header__logo{
+                width: rem-calc(300px);
+                height: auto;
+
+                @include mobilePortrait{
+                    width: rem-calc(200px);
+                }
+            }
+
+            /* header logo motto */
+            .header__logo-motto{
+                color: $white;
+                font-size: rem-calc(12px);
+                text-transform: uppercase;
+            }
+
+            /* login form */
+            .login-form{
+
+                @include media($login-form-break){
+                    display: none;
+                }
+
+                > *{
+                    margin-right: 10px;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                }
+
+                /* login form field */
+                &__field{
+                    @extend %default-ipt;
+                    display: inline-block;
+                }
+
+                /* signin */
+                &__button.signin{
+                   @extend %login-button;
+                    margin-right: 20px;
+                }
+
+                /* signup */
+                &__button.signup{
+                    @extend %yellow-button;
+                    text-transform: none;
+                }
+
+            }
+
+            /* header link wrapper */
+            .header__link-wrapper{
+                display: none;
+
+                @include media($login-form-break){
+                    display: block;
+                }
+
+                %headerButton{
+                    font-size: rem-calc(14px);
+                    text-transform: none;
+                    font-weight: 800;
+                    @include mobileLandscape{
+                        padding: rem-calc(12px) rem-calc(20px);
+                    }
+
+                    @include media(360px){
+                        padding: 6px;
+                        font-size: 9px;
+                    }
+                }
+
+                /* header link signin */
+                .header__link--signin{
+                    @extend %login-button;
+                    @extend %headerButton;
+                }
+
+                /* header link signup */
+                .header__link--signup{
+                    @extend %yellow-button;
+                    @extend %headerButton;
+                    margin-left: rem-calc(20px);
+
+                    @include mobileLandscape{
+                        margin-left: rem-calc(8px);
+                    }
+                }
+
+            }
+        }
+
+    }
+    /* header lower area */
+    .header-lower-area{
+        width: 100%;
+        height: $header-menu-hgt;
+        background-color: $green-hover;
+        box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.14);
+
+        /* header menu */
+        .header-menu{
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            @include mobileLandscape{
+                justify-content: space-between;
+            }
+
+            /* header menu item */
+            &__item{
+                margin-right: 24px;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                color: $white;
+                font-size: 18px;
+
+                @include tabletLandscape{
+                    font-size: 14px;
+                }
+
+                @include mobileLandscape{
+                    margin: 0;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: rem-calc(12px);
+                }
+
+                &.active{
+                    position: relative;
+                    font-weight: bold;
+
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: rem-calc(4px);
+                        background-color: $yellow;
+                    }
+                }
+
+                &:before{
+                    content: '';
+                    margin-right: 6px;
+                    width: rem-calc(18px);
+                    height: rem-calc(18px);
+                    background-size: 100% 100%;
+                    background-position: center center;
+
+                    @include mobileLandscape{
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-bottom: 5px;
+                        text-align: center;
+                    }
+                }
+
+                &.home:before{
+                    background-image: url("/images/nav-home-icon.svg");
+                }
+
+                &.prognosis:before{
+                    background-image: url("/images/nav-prognosis-icon.svg");
+                }
+
+                &--news:before{
+                    background-image: url("/images/nav-news-icon.svg");
+                }
+
+                &.store:before{
+                    background-image: url("/images/nav-store-icon.svg");
+                }
+
+                &.notice:before{
+                    background-image: url("/images/nav-notice-icon.svg");
+                }
+
+                &.foundation:before{
+                    background-image: url("/images/nav-foundation-icon.svg");
+                }
+
+                &.story:before{
+                    background-image: url("/images/nav-story-icon.svg");
+                }
+
+                &.contact:before{
+                    background-image: url("/images/nav-contact-icon.svg");
+                }
+            }
+        }
+    }
+}

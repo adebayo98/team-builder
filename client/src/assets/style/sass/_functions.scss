@@ -1,0 +1,25 @@
+
+// Ratio
+@function ratio($value, $ratio: $ratio){
+    @return calc(#{$value} - #{$value} * #{$ratio});  
+}
+
+// Remove values unit if exist
+@function trim-unit($value){
+    @return $value / ($value * 0 + 1);
+}
+
+// Resize from px to rem
+@function rem-calc($value, $base-size: $font-size-base) {
+    @return calc(#{trim-unit($value)} / #{trim-unit($base-size)} * 1rem);
+}
+
+// Resize from px to vw
+@function vw-calc($value) {
+    @return calc(#{trim-unit($value)} * 0.06944444444444445 * 1vw);
+}
+
+// Resize from px to vh
+@function vh-calc($value) {
+    @return calc(#{trim-unit($value)} * 0.06944444444444445 * 1vh);
+}

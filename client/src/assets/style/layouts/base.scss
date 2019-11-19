@@ -1,0 +1,40 @@
+* {
+    outline: none;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+}
+
+html, body, #root{
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px auto;
+    position: relative;
+    color: $black;
+    background-color: $white;
+
+    // Responsive fonts settings
+    $font-size-base: 16px;
+    font-size: $font-size-base;
+
+    @include tabletLandscape{
+        $font-size-base: 15px;
+        font-size: $font-size-base;
+    }
+
+    @include tabletPortrait{
+        $font-size-base: 14px;
+        font-size: $font-size-base;
+    }
+
+    @include mobileLandscape{
+        $font-size-base: 13px;
+        font-size: $font-size-base;
+    }
+
+    @include mobilePortrait{
+        $font-size-base: 12px;
+        font-size: $font-size-base;
+    }
+}
+
