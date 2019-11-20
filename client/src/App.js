@@ -13,8 +13,8 @@ class App extends React.Component {
   render() {
       return(
           <Router>
-              <Route path="/login" component={Login} />
-              <Route path="/" component={Login} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/" component={Login} />
               {/*<Route exact path="/signin" component={() => <SingleFormLayout content={<SignInView/>} />} />*/}
           </Router>
       );
