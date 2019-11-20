@@ -4,7 +4,7 @@ const serverHost = 'http://hetic.adebayo.fr';
 
 const UserCard = (props) => {
 
-    const fullNameBinder = (fullName) => {
+    const fullNameRender = (fullName) => {
         if (fullName.length > 13){
             return fullName.slice(0, 13)+'...';
         }
@@ -16,7 +16,7 @@ const UserCard = (props) => {
             {/* photo container */}
             <div className={'photo-container'} style={{backgroundImage: `url(${serverHost+props.photoUrl})`}}></div>
             {/* full name */}
-            <p className={'full-name'}>{fullNameBinder(props.fullName)}</p>
+            <p className={'full-name'}>{fullNameRender(props.fullName)}</p>
             {/* main skill */}
             <p className={'main-skill'}>{props.mainSkill}</p>
         </div>

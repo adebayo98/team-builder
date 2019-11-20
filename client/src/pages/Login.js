@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Api from "../services/Api";
 import UserCard from "../components/UserCard";
+import Title1 from "../components/ui/Title1";
 
 class Login extends Component
 {
@@ -33,13 +34,24 @@ class Login extends Component
         );
 
         return(
-            // login page
             <section className={'login-page'}>
-                {/* random-users */}
                 <aside className={'random-users'}>{users}</aside>
-                {/* login form */}
                 <form className={'login-form'}>
-
+                    <div className={'content-wrapper'}>
+                        <img className={'logo'} src={'/images/logo-3-blanc.svg'} alt={'logo hetic'}/>
+                        <Title1 value={'Connexion'}/>
+                        <div className={'field-group field-group--mail'}>
+                            <label>Email*</label>
+                            <input type={'email'} name={'email'} placeholder={'firstname.lastname@hetic.net'}
+                                   onChange={(event) => this.setState({email: event.target.value})}/>
+                        </div>
+                        <div className={'field-group field-group--pass'}>
+                            <label>Mot de passe*</label>
+                            <input type={'password'} name={'password'} placeholder={'**********'}
+                                   onChange={(event => this.setState({password: event.target.value}))}/>
+                        </div>
+                        <button className={'cta--submit'} type={'submit'}>Connexion</button>
+                    </div>
                 </form>
             </section>
         )
