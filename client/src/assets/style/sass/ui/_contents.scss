@@ -1,0 +1,66 @@
+// A
+
+// B
+%box-shadow{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+}
+
+// C
+%container{
+    margin: auto;
+    width: calc(100% - 100px);
+    max-width: 1124px;
+
+    @include tabletLandscape{
+        margin: auto;
+        width: calc(100% - 30px);
+    }
+}
+
+// D
+
+// E
+
+// F
+
+// G
+
+// H
+
+// I
+
+// J
+
+// K
+
+// L
+
+// M
+
+// N
+
+// O
+
+// P
+
+// Q
+
+// R
+
+// S
+
+// T
+%text-content{
+    font-size: 14px;
+    line-height: 20px;
+    color: $grey-4;
+}
+
+// W
+
+// X
+
+// Y
+
+// Z
+

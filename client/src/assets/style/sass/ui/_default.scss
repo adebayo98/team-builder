@@ -1,0 +1,276 @@
+// A
+
+// B
+.bold-dft{
+    font-weight: bold;
+}
+
+.button-wrapper-dft{
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include tabletLandscape{
+        top: unset;
+        left: unset;
+        right: 0;
+        bottom: 0;
+        transform: none;
+    }
+}
+
+.button-more-dft{
+    @extend %more-button;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+// C
+.container-dft{
+    margin: auto;
+    width: calc(100% - 100px);
+    max-width: 1124px;
+
+    @include tabletLandscape{
+        margin: auto;
+        width: calc(100% - 30px);
+    }
+}
+
+// D
+
+// E
+
+// F
+
+// G
+
+// H
+.hide-on-mobile-dft{
+    @include mobileLandscape{
+        display: none;
+    }
+}
+
+// I
+.important-dft{
+    color: $green-main;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+// J
+
+// K
+
+// L
+
+// M
+
+// N
+
+// O
+
+// P
+.page-area-dft{
+    margin-top: rem-calc(35px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    // Breack on tablet
+    &:not(.breack-on-mobile){
+
+        @include tabletLandscape{
+            margin-top: 25px;
+            flex-direction: column;
+        }
+
+        > * {
+            width: calc(50% - 28px);
+
+            @include tabletLandscape{
+                margin-top: 25px;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        > :first-child{
+            @include tabletLandscape{
+                margin-top: 0;
+            }
+        }
+
+    }
+
+    // Breack on mobile
+    &.breack-on-mobile{
+
+        @include mobileLandscape{
+            margin-top: 25px;
+            flex-direction: column;
+        }
+
+        > * {
+            width: calc(50% - 28px);
+
+            @include tabletLandscape{
+                width: calc(50% - 5px);
+            }
+
+            @include mobileLandscape{
+                margin-top: 25px;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        > :first-child{
+            @include mobileLandscape{
+                margin-top: 0;
+            }
+        }
+
+    }
+
+}
+
+// Q
+
+// R
+
+// S
+.slider-dft, .slick-initialized, .slick-slider{
+    padding: 0;
+    margin: 0;
+
+    &.slick-dotted {
+        margin-bottom: 0;
+    }
+
+    .slick-slide {
+        outline: none;
+    }
+
+    .slick-arrow{
+        z-index: 2;
+        &:before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-position: center center;
+        }
+    }
+
+    .slick-dots{
+        padding: 0;
+        margin: 0;
+        top: 0;
+        right: 0;
+        bottom: unset;
+        display: inline;
+        width: auto;
+
+        li{
+            margin-right: 0;
+            width: 7px;
+            height: 7px;
+
+            button{
+                position: relative;
+                padding: 0;
+                width: 7px;
+                height: 7px;
+
+                &:before{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    color: #EAEAEA;
+                    font-weight: bold;
+                    opacity: 1;
+                }
+            }
+
+            &.slick-active button:before{
+                color: $green-main;
+            }
+        }
+    }
+
+    .slick-arrow{
+
+    }
+
+    .slick-prev{
+        left: -30px;
+        &:before{
+            background-image: url("/images/button-prev.svg");
+        }
+    }
+
+    .slick-next{
+        right: -30px;
+        &:before{
+            background-image: url("/images/button-next.svg");
+        }
+    }
+
+    .slick-slide{
+        @include mobileLandscape{
+            margin-right: rem-calc(15px);
+        }
+    }
+
+}
+
+// T
+.line-through-dft{
+    text-decoration: line-through;
+}
+
+// U
+
+// V
+.valid-icon-dft{
+    &:before{
+        content: url("/images/valid.svg");
+    }
+}
+
+.valid-icon-wht-dft{
+    position: relative;
+    width: 24px;
+    height: 24px;
+
+    &:before{
+        content: url("/images/valid-white-icon.svg");;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        transform: translateY(-35%);
+    }
+
+    &.big:before{
+        transform: scale(1.5) translateY(-15%);
+    }
+}
+
+// W
+
+// X
+
+// Y
+
+// Z
+

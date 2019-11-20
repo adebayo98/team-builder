@@ -1,0 +1,86 @@
+// Responsive - Tablet-landscape
+@mixin tabletLandscape{
+  @media (max-width: $screen-tablet-landscape){
+    @content;
+  }
+}
+
+@mixin tabletLandscapeMin{
+    @media (min-width: $screen-tablet-landscape){
+        @content;
+    }
+}
+
+// Responsive - Tablet-portrait
+@mixin tabletPortrait{
+  @media (max-width: $screen-tablet-portrait){
+    @content;
+  }
+}
+
+@mixin tabletPortraitMin{
+    @media (min-width: $screen-tablet-portrait){
+        @content;
+    }
+}
+
+// Responsive - Mobile-landscape
+@mixin mobileLandscape{
+  @media (max-width: $screen-mobile-landscape){
+    @content;
+  }
+}
+
+@mixin mobileLandscapeMin{
+    @media (min-width: $screen-mobile-landscape){
+        @content;
+    }
+}
+
+// Responsive - Mobile-portrait
+@mixin mobilePortrait{
+  @media (max-width: $screen-mobile-portrait){
+    @content;
+  }
+}
+
+@mixin mobilePortraitMin{
+    @media (min-width: $screen-mobile-portrait){
+        @content;
+    }
+}
+
+// Responsive - Mobile-portrait-short
+@mixin mobilePortraitShort{
+    @media (max-width: $screen-mobile-portrait-short){
+        @content;
+    }
+}
+
+@mixin mobilePortraitShortMin{
+    @media (min-width: $screen-mobile-portrait-short){
+        @content;
+    }
+}
+
+// Responsive - Media
+@mixin media($max-width){
+    @media (max-width: $max-width){
+        @content;
+    }
+}
+
+@mixin mediaMin($max-width){
+    @media (min-width: $max-width){
+        @content;
+    }
+}
+
+@mixin mediaBetween($min-width, $max-width){
+    @media (min-width: $min-width) and (max-width: $max-width){
+        @content;
+    }
+}
+
+
+

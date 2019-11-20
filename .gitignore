@@ -1,4 +1,9 @@
 .DS_Store
+<<<<<<< HEAD
+.idea
+.idea/*
+=======
 .idea/
 .idea/workspace.xml
 d*.php
+>>>>>>> 228a733ac9b9198ab896075375bdbac0ed5a008b
