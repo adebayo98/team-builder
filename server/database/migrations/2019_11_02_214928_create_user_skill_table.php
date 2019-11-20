@@ -27,7 +27,7 @@ class CreateUserSkillTable extends Migration
                 ->references('id')
                 ->on('skills')
                 ->onDelete('cascade');
-            $table->integer('note')->nullable();
+            $table->string('note')->nullable();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
         });

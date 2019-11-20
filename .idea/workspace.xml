@@ -7,6 +7,7 @@
       <change afterPath="$PROJECT_DIR$/client/src/pages/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App 2.css" beforeDir="false" />
@@ -40,6 +41,15 @@
       <change beforePath="$PROJECT_DIR$/client/src/components/ProfileCard.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ProfileHeader.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+=======
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Models/Promotion.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/Promotion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/Models/User.php" afterDir="false" />
+>>>>>>> 11cc0790a3e8f238f58512328d98efe1100b8afd
+>>>>>>> 228a733ac9b9198ab896075375bdbac0ed5a008b
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -156,7 +166,10 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+<<<<<<< HEAD
+=======
     <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> 11cc0790a3e8f238f58512328d98efe1100b8afd
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -186,10 +199,19 @@
       <option name="presentableId" value="Default" />
       <updated>1572724169660</updated>
       <workItem from="1572724175203" duration="655000" />
+<<<<<<< HEAD
       <workItem from="1573075385695" duration="13991000" />
       <workItem from="1573855578833" duration="516000" />
       <workItem from="1573992069898" duration="25000" />
       <workItem from="1574197947149" duration="3269000" />
+=======
+<<<<<<< HEAD
+      <workItem from="1573075385695" duration="338000" />
+      <workItem from="1573602507218" duration="1316000" />
+=======
+      <workItem from="1573075385695" duration="13430000" />
+>>>>>>> 11cc0790a3e8f238f58512328d98efe1100b8afd
+>>>>>>> 228a733ac9b9198ab896075375bdbac0ed5a008b
     </task>
     <servers />
   </component>

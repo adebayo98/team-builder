@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './pages/Login';
 
-
 class App extends React.Component {
 
   constructor(props) {
@@ -15,6 +14,7 @@ class App extends React.Component {
       return(
           <Router>
               <Route path="/login" component={Login} />
+              <Route path="/" component={Login} />
               {/*<Route exact path="/signin" component={() => <SingleFormLayout content={<SignInView/>} />} />*/}
           </Router>
       );

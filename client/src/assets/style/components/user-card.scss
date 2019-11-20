@@ -1,3 +1,37 @@
 .user-card-component{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 192px;
+  border-radius: 8px;
+  background-color: $white-alternative;
+
+  // photo container
+  .photo-container{
+    width: 112px;
+    height: 112px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  // full name
+  .full-name{
+    margin-top: 12px;
+    color: $black-default;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+  }
+
+  // main skill
+  .main-skill{
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 16px;
+    color: $black-default;
+  }
 
 }

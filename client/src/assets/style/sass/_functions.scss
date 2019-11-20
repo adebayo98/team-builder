@@ -14,6 +14,15 @@
     @return calc(#{trim-unit($value)} / #{trim-unit($base-size)} * 1rem);
 }
 
+@function em-calc($value, $base-size: $font-size-base) {
+    @return calc(#{trim-unit($value)} / #{trim-unit($base-size)} * 1em);
+}
+
+// Resize from px to rem
+@function percent-calc($value, $total) {
+    @return calc(#{trim-unit($value)} * 100 / #{trim-unit($total)} * 1%);
+}
+
 // Resize from px to vw
 @function vw-calc($value) {
     @return calc(#{trim-unit($value)} * 0.06944444444444445 * 1vw);

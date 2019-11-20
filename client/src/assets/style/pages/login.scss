@@ -5,9 +5,94 @@
 
   // random users
   .random-users{
+    position: relative;
     width: 35%;
     height: 100%;
     background-color: $white;
+
+    @include tabletLandscape{
+      display: none;
+    }
+
+    $mq-width: 512px;
+    $mq-height: 750px;
+
+    .user-card-component--0{
+      position: absolute;
+      top: percent-calc(25px, $mq-height);
+      right: percent-calc(32px, $mq-width);
+      width: em-calc(128px);
+      height: em-calc(154px);
+
+      .photo-container{
+        width: em-calc(95px);
+        height: em-calc(85px);
+      }
+
+      .full-name{
+        margin-top: em-calc(12px);
+        font-size: em-calc(12px);
+        line-height: em-calc(18px);
+      }
+
+      .main-skill{
+        margin-top: em-calc(10px);
+        font-size: em-calc(10px);
+        line-height: em-calc(14px);
+      }
+
+    }
+
+    .user-card-component--1{
+      position: absolute;
+      top: percent-calc(200px, $mq-height);
+      left: percent-calc(64px, $mq-width);
+      width: em-calc(256px);
+      height: em-calc(305px);
+
+      .photo-container{
+        width: em-calc(210px);
+        height: em-calc(220px);
+      }
+
+      .full-name{
+        margin-top: em-calc(6px);
+        font-size: em-calc(25px);
+      }
+
+      .main-skill{
+        margin-top: em-calc(12px);
+        font-size: em-calc(18px);
+      }
+
+    }
+
+    .user-card-component--2{
+      position: absolute;
+      bottom: percent-calc(27px, $mq-height);
+      right: percent-calc(96px, $mq-width);
+      width: em-calc(160px);
+      height: em-calc(192px);
+
+      .photo-container{
+        width: em-calc(110px);
+        height: em-calc(120px);
+      }
+
+      .full-name{
+        margin-top: em-calc(12px);
+        font-size: em-calc(14px);
+        line-height: em-calc(18px);
+      }
+
+      .main-skill{
+        margin-top: em-calc(10px);
+        font-size: em-calc(12px);
+        line-height: em-calc(14px);
+      }
+
+    }
+
   }
 
   // login form
@@ -15,6 +100,11 @@
     width: 75%;
     height: 100%;
     background-color: $black-default;
+
+    @include tabletLandscape{
+      width: 100%;
+    }
+
   }
 
 }
