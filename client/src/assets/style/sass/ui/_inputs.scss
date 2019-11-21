@@ -21,16 +21,17 @@
 
 // D
 %default-ipt{
-    padding: 12px 20px;
-    display: block;
-    color: white;
     font-size: 16px;
-    font-weight: 500;
+    padding: 10px 0;
+    width: 100%;
+    color: $white;
     border: none;
-    border-radius: 2px;
+    border-bottom: 2px solid $black-default;
+    border-radius: 0;
+    background: none;
 
     &::placeholder{
-        color: white;
+
     }
 
     &:focus::placeholder{

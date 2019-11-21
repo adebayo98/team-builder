@@ -1,0 +1,40 @@
+.header{
+  width: 100%;
+  height: auto;
+  color: $white;
+  background-color: $black-default;
+
+  // header top area
+  .header-top-area{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-top-area-left-area{
+      display: flex;
+      align-items: center;
+
+      .logo{
+        width: rem-calc(133px);
+        height: auto;
+      }
+
+      .input-search-component{
+        margin-left: rem-calc(59px);
+        width: rem-calc(544px);
+        border-bottom-color: $white;
+      }
+
+    }
+
+
+
+  }
+
+  // header bottom area
+  .header-bottom-area{
+
+  }
+
+}

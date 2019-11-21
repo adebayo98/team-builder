@@ -151,14 +151,7 @@
         }
 
         input{
-          font-size: 16px;
-          padding: 10px 0;
-          width: 100%;
-          color: $white;
-          border: none;
-          border-bottom: 2px solid $white;
-          border-radius: 0;
-          background: none;
+          @extend %default-ipt;
         }
       }
 

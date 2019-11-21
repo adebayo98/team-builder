@@ -1,0 +1,7 @@
+.input-search-component{
+  @extend %default-ipt;
+  background-repeat: no-repeat;
+  background-size: 17px 17px;
+  background-position: 100% 50%;
+  background-image: url("/images/input/search.svg");
+}
