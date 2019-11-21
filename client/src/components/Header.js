@@ -14,15 +14,15 @@ const Header = () => {
     return(
         <header className={'header'}>
             {/* header top area */}
-            <div className={'container-dft header-top-area'}>
-                <div className={'header-top-area-left-area'}>
+            <div className={'container-dft header-content'}>
+                <div className={'header-content-left-area'}>
                     {/* logo */}
                     <img className={'logo'} src={'/images/logo-3-blanc.svg'} alt={'logo hetic'}/>
                     {/* Search bar */}
                     <InputSearch/>
                 </div>
 
-                <div className={'header-top-area-right-area'}>
+                <div className={'header-content-right-area'}>
                    {/* user data */}
                    <div className={'user-data'}>
                        <span className={'user-data-fullname'}> {user.last_name} </span>
@@ -31,10 +31,6 @@ const Header = () => {
                    {/* photo container */}
                    <div className={'photo-container'} style={{backgroundImage: `url(${serverHost+user.photo_url})`}}></div>
                 </div>
-            </div>
-            {/* header bottom area */}
-            <div className={'container-dft header-bottom-area'}>
-                <h1 className={'title-1-dft'}> Team builder </h1>
             </div>
         </header>
     );

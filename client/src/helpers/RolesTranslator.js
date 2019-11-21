@@ -4,11 +4,11 @@ const RolesTranslator = (role) => {
     }
 
     if(role === "student"){
-        return 'Étudiant';
+        return 'Étudiant(e)';
     }
 
     if(role === "speaker"){
-        return 'Intervenant';
+        return 'Intervenant(e)';
     }
 }
 

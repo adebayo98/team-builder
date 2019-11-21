@@ -4,14 +4,14 @@
   color: $white;
   background-color: $black-default;
 
-  // header top area
-  .header-top-area{
+  // header content
+  .header-content{
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .header-top-area-left-area{
+    .header-content-left-area{
       display: flex;
       align-items: center;
 
@@ -35,7 +35,7 @@
       }
     }
 
-    .header-top-area-right-area{
+    .header-content-right-area{
       display: flex;
       align-items: center;
 
@@ -67,16 +67,7 @@
 
     }
 
-
-
   }
 
-  // header bottom area
-  .header-bottom-area{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-  }
 
 }
