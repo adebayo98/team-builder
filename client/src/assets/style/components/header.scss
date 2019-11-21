@@ -25,7 +25,15 @@
         width: rem-calc(544px);
         border-bottom-color: $white;
       }
+    }
 
+    .header-top-area-right-area{
+      display: flex;
+      align-items: center;
+
+      .user-data{
+
+      }
     }
 
 

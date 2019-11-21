@@ -152,6 +152,7 @@
 
         input{
           @extend %default-ipt;
+          border-bottom-color: $white;
         }
       }
 

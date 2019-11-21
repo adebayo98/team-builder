@@ -4,7 +4,7 @@ import Login from './pages/Login';
 import SingleUser from "./pages/SingleUser";
 import Users from "./pages/Users";
 import SessionHelper from "./helpers/SessionHelper";
-import DefaultLayout from "./layouts/Default";
+import Default from "./layouts/Default";
 
 
 class App extends React.Component {
@@ -25,9 +25,9 @@ class App extends React.Component {
               {/* List of route which need auth */}
               { this.state.isAuth ?
                   <div className={'lazy-wrapper-dft'}>
-                      <Route exact path="/" component={ () => <DefaultLayout content={SessionHelper.hasRole('student') ? SingleUser : Users} /> }/>
-                      <Route exact path="/profile" component={ () => <DefaultLayout content={SingleUser} /> }/>
-                      <Route exact path="/login" component={ () => <DefaultLayout content={Login} /> }/>
+                      <Route path="/" component={ () => <Default content={Users} /> }/>
+                      <Route exact path="/profile" component={ () => <Default content={SingleUser} /> }/>
+                      <Route exact path="/login" component={Login}/>
                   </div>
               : '' }
           </Router>
