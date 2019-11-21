@@ -1,14 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './assets/styles/style.scss';
-
-/* VIEWS */
-
-import HomeView from './views/HomeView';
-import AdminView from './views/AdminView';
-import ProfileView from './views/ProfileView';
-import SignInView from './views/SignInView';
-import SignInView2 from './views/SignInView-2';
+import Login from './pages/Login';
+import SingleUser from "./pages/SingleUser";
+import Users from "./pages/Users";
+import SessionHelper from "./helpers/SessionHelper";
+import DefaultLayout from "./layouts/Default";
 
 
 class App extends React.Component {
@@ -16,27 +12,24 @@ class App extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
+          isAuth: SessionHelper.isAuth(),
       };
   }
 
   render() {
       return(
           <Router>
-              <Route exact path="/login">
-                <HomeView />
-              </Route>
-              <Route exact path="/">
-                <AdminView />
-              </Route>
-              <Route exact path="/profile">
-                <ProfileView />
-              </Route>
-              <Route exact path="/signin">
-                <SignInView />
-              </Route>
-              <Route exact path="/signin2">
-                <SignInView2 />
-              </Route>
+              {/* List of routes not need auth */}
+              { !this.state.isAuth ? <Route exact path="/" component={Login}/> : '' }
+
+              {/* List of route which need auth */}
+              { this.state.isAuth ?
+                  <div className={'lazy-wrapper-dft'}>
+                      <Route exact path="/" component={ () => <DefaultLayout content={SessionHelper.hasRole('student') ? SingleUser : Users} /> }/>
+                      <Route exact path="/profile" component={ () => <DefaultLayout content={SingleUser} /> }/>
+                      <Route exact path="/login" component={ () => <DefaultLayout content={Login} /> }/>
+                  </div>
+              : '' }
           </Router>
       );
   }

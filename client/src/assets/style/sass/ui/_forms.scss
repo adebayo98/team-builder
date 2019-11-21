@@ -1,0 +1,69 @@
+// Default form content style
+%form-content{
+  *{
+      @extend %remove-appearance;
+  }
+
+  legend{
+      @extend %legend;
+  }
+
+  fieldset{
+      @extend %fieldset;
+  }
+
+  .input-error{
+  }
+
+  .input-legend{
+  }
+
+  .form-field-error{
+
+  }
+
+  label{
+      @extend %label;
+  }
+
+  input[type=checkbox]{
+      @extend %checkBox-ipt;
+  }
+
+  input[type=email]{
+      @extend %email-ipt;
+  }
+
+  input[type=password]{
+      @extend %password-ipt;
+  }
+
+  input[type=radio]{
+      @extend %radio-ipt;
+  }
+
+  input[type=text]{
+      @extend %text-ipt;
+  }
+
+  input[type=tel]{
+      @extend %tel-ipt;
+  }
+
+  input[type=number]{
+      @extend %number-ipt;
+  }
+
+  select{
+      @extend %select-ipt;
+  }
+
+  textarea{
+      @extend %textarea-ipt;
+  }
+
+  input[type=submit], button[type=submit]{
+      @extend %submit-ipt;
+  }
+
+}

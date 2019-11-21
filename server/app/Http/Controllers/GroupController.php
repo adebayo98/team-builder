@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\TeamBuilder;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,15 +20,16 @@ use Illuminate\Support\Facades\Cache;
 class GroupController extends Controller
 {
     /**
-     * Get a list of all formations
+     * Build a team
      *
-     * @param Request $request
-     * @return mixed
+     * @param string $formation
+     * @param int $userPerTeam
      */
-    public function build(Request $request)
+    public function build(string $formation, int $userPerTeam)
     {
 
-    }
+        $teamBuilder = new TeamBuilder([$formation], $userPerTeam);
 
+    }
 }
 

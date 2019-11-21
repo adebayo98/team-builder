@@ -1,0 +1,153 @@
+// A
+
+// B
+
+// C
+%checkBox-ipt{
+    display: block;
+
+    &:before{
+      content: '';
+    }
+
+    &:after{
+      content: attr(data-content);
+      margin-left: 5px;
+    }
+
+    &:checked:before{
+    }
+}
+
+// D
+%default-ipt{
+    padding: 12px 20px;
+    display: block;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 2px;
+
+    &::placeholder{
+        color: white;
+    }
+
+    &:focus::placeholder{
+      opacity: 0;
+    }
+}
+
+// E
+%email-ipt{
+    @extend %default-ipt;
+}
+
+// F
+%fieldset{
+    display: block;
+}
+
+%fieldset-2{
+
+}
+
+%fieldset-3{
+
+}
+
+// G
+%group-ipt{
+
+}
+
+%group-ipt-2{
+
+}
+
+%group-ipt-3{
+
+}
+
+// H
+
+// I
+
+// J
+
+// K
+
+// L
+%label{
+    display: block;
+}
+
+%legend{
+    display: block;
+}
+
+// M
+
+// N
+%number-ipt{
+    @extend %default-ipt;
+}
+
+// O
+
+// P
+%password-ipt{
+    @extend %default-ipt;
+}
+
+// Q
+
+// R
+%radio-ipt{
+    display: block;
+
+    &:before{
+        content: '';
+    }
+
+    &:after{
+        content: attr(data-content);
+        margin-left: 5px;
+    }
+
+    &:checked:before{
+    }
+}
+
+// S
+%submit-ipt{
+    display: block;
+}
+
+%select-ipt{
+    @extend %default-ipt;
+}
+
+// T
+%text-ipt{
+    @extend %default-ipt;
+}
+
+%tel-ipt{
+    @extend %default-ipt;
+}
+
+%textarea-ipt{
+    @extend %default-ipt;
+}
+
+// W
+
+// X
+
+// Y
+
+// Z
+
+
+

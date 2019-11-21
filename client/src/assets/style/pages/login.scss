@@ -1,0 +1,179 @@
+.login-page{
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  // random users
+  .random-users{
+    position: relative;
+    width: 35%;
+    height: 100%;
+    background-color: $white;
+
+    @include tabletLandscape{
+      display: none;
+    }
+
+    $mq-width: 512px;
+    $mq-height: 750px;
+
+    .user-card-component--0{
+      position: absolute;
+      top: percent-calc(25px, $mq-height);
+      right: percent-calc(32px, $mq-width);
+      width: em-calc(128px);
+      height: em-calc(154px);
+
+      .photo-container{
+        width: em-calc(95px);
+        height: em-calc(85px);
+      }
+
+      .full-name{
+        margin-top: em-calc(12px);
+        font-size: em-calc(12px);
+        line-height: em-calc(18px);
+      }
+
+      .main-skill{
+        margin-top: em-calc(10px);
+        font-size: em-calc(10px);
+        line-height: em-calc(14px);
+      }
+
+    }
+
+    .user-card-component--1{
+      position: absolute;
+      top: percent-calc(200px, $mq-height);
+      left: percent-calc(64px, $mq-width);
+      width: em-calc(256px);
+      height: em-calc(305px);
+
+      .photo-container{
+        width: em-calc(210px);
+        height: em-calc(220px);
+      }
+
+      .full-name{
+        margin-top: em-calc(6px);
+        font-size: em-calc(20px);
+      }
+
+      .main-skill{
+        margin-top: em-calc(6px);
+        font-size: em-calc(16px);
+        line-height: em-calc(18px);
+      }
+
+    }
+
+    .user-card-component--2{
+      position: absolute;
+      bottom: percent-calc(27px, $mq-height);
+      right: percent-calc(96px, $mq-width);
+      width: em-calc(160px);
+      height: em-calc(192px);
+
+      .photo-container{
+        width: em-calc(120px);
+        height: em-calc(120px);
+      }
+
+      .full-name{
+        margin-top: em-calc(12px);
+        font-size: em-calc(14px);
+        line-height: em-calc(18px);
+      }
+
+      .main-skill{
+        margin-top: em-calc(10px);
+        font-size: em-calc(12px);
+        line-height: em-calc(14px);
+      }
+
+    }
+
+  }
+
+  // login form
+  .login-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 100%;
+    background-color: $black-default;
+
+    @include tabletLandscape{
+      width: 100%;
+    }
+
+    // content wrapper
+    .content-wrapper{
+      width: calc(100% - 40px);
+      max-width: 500px;
+      height: auto;
+
+      // Logo
+      .logo{
+        width: rem-calc(256px);
+        height: auto;
+      }
+
+      // form title
+      .title-1-component{
+        margin-top: rem-calc(40px);
+      }
+
+      .form-error{
+        margin-top: 8px;
+        font-size: 12px;
+        color: $red-default;
+
+        &--global{
+          margin-top: 10px;
+
+          & + .field-group{
+            margin-top: 10px;
+          }
+        }
+      }
+
+      // field group
+      .field-group{
+        margin-top: 20px;
+        color: $white;
+
+        label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        input{
+          font-size: 16px;
+          padding: 10px 0;
+          width: 100%;
+          color: $white;
+          border: none;
+          border-bottom: 2px solid $white;
+          border-radius: 0;
+          background: none;
+        }
+      }
+
+      .cta--submit{
+        margin-top: 40px;
+        padding: 5px 0;
+        width: 100%;
+        height: auto;
+        font-size: 16px;
+        color: $black-default;
+        border-radius: 8px;
+        background-color: $green-default;
+      }
+    }
+
+  }
+
+}

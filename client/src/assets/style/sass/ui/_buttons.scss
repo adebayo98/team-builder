@@ -1,0 +1,71 @@
+// A
+
+// B
+
+%black-button{
+    @extend %button;
+}
+
+%button{
+    margin: 0;
+    padding: 12px 20px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+}
+
+// C
+%cross-button{
+    display: block;
+}
+
+// D
+%default-button{
+    @extend %button;
+}
+
+// E
+
+// F
+
+// G
+
+// H
+
+// I
+
+// J
+
+// K
+
+// L
+%login-button{
+    @extend %button;
+}
+
+// M
+
+// N
+
+// O
+
+// P
+
+// Q
+
+// R
+
+// S
+
+// T
+
+// W
+
+// X
+
+// Y
+
+// Z
