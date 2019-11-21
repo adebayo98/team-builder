@@ -57,12 +57,13 @@
 
       .full-name{
         margin-top: em-calc(6px);
-        font-size: em-calc(25px);
+        font-size: em-calc(20px);
       }
 
       .main-skill{
-        margin-top: em-calc(12px);
-        font-size: em-calc(18px);
+        margin-top: em-calc(6px);
+        font-size: em-calc(16px);
+        line-height: em-calc(18px);
       }
 
     }
@@ -75,7 +76,7 @@
       height: em-calc(192px);
 
       .photo-container{
-        width: em-calc(110px);
+        width: em-calc(120px);
         height: em-calc(120px);
       }
 
@@ -97,12 +98,79 @@
 
   // login form
   .login-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 75%;
     height: 100%;
     background-color: $black-default;
 
     @include tabletLandscape{
       width: 100%;
+    }
+
+    // content wrapper
+    .content-wrapper{
+      width: calc(100% - 40px);
+      max-width: 500px;
+      height: auto;
+
+      // Logo
+      .logo{
+        width: rem-calc(256px);
+        height: auto;
+      }
+
+      // form title
+      .title-1-component{
+        margin-top: rem-calc(40px);
+      }
+
+      .form-error{
+        margin-top: 8px;
+        font-size: 12px;
+        color: $red-default;
+
+        &--global{
+          margin-top: 10px;
+
+          & + .field-group{
+            margin-top: 10px;
+          }
+        }
+      }
+
+      // field group
+      .field-group{
+        margin-top: 20px;
+        color: $white;
+
+        label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        input{
+          font-size: 16px;
+          padding: 10px 0;
+          width: 100%;
+          color: $white;
+          border: none;
+          border-bottom: 2px solid $white;
+          background: none;
+        }
+      }
+
+      .cta--submit{
+        margin-top: 40px;
+        padding: 5px 0;
+        width: 100%;
+        height: auto;
+        font-size: 16px;
+        color: $black-default;
+        border-radius: 8px;
+        background-color: $green-default;
+      }
     }
 
   }
