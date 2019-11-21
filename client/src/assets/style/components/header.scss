@@ -24,6 +24,14 @@
         margin-left: rem-calc(59px);
         width: rem-calc(544px);
         border-bottom-color: $white;
+
+        @include tabletLandscape{
+          width: rem-calc(300px);
+        }
+
+        @include tabletPortrait{
+          display: none;
+        }
       }
     }
 
@@ -32,8 +40,31 @@
       align-items: center;
 
       .user-data{
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+
+        .user-data-fullname{
+          font-weight: bold;
+        }
+
+        .user-data-role{
+          margin-top: 5px;
+          font-size: 12px;
+        }
 
       }
+
+      .photo-container{
+        margin-left: 8px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: $white;
+        background-size: cover;
+        background-position: center center;
+      }
+
     }
 
 
@@ -42,7 +73,10 @@
 
   // header bottom area
   .header-bottom-area{
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
   }
 
 }

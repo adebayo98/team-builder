@@ -25,8 +25,8 @@ class App extends React.Component {
               {/* List of route which need auth */}
               { this.state.isAuth ?
                   <div className={'lazy-wrapper-dft'}>
-                      <Route path="/" component={ () => <Default content={Users} /> }/>
-                      <Route exact path="/profile" component={ () => <Default content={SingleUser} /> }/>
+                      <Route exact path="/" component={ () => <Default content={SessionHelper.hasRole('student') ? <SingleUser/> : <Users/>} /> }/>
+                      <Route exact path="/profile" component={ () => <Default content={<SingleUser/>} /> }/>
                       <Route exact path="/login" component={Login}/>
                   </div>
               : '' }
