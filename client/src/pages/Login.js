@@ -50,7 +50,9 @@ class Login extends Component
 
         return(
             <section className={'login-page'}>
+                {/* random user */}
                 <aside className={'random-users'}>{users}</aside>
+                {/* login form */}
                 <form className={'login-form'} onSubmit={(event => this.loginFormValidator(event))}>
                     <div className={'content-wrapper'}>
                         <img className={'logo'} src={'/images/logo-3-blanc.svg'} alt={'logo hetic'}/>

@@ -6,6 +6,9 @@
       <sourceFolder url="file://$MODULE_DIR$/server/tests" isTestSource="true" packagePrefix="Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/dnoegel/php-xdg-base-dir" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/doctrine/lexer" />
@@ -18,6 +21,9 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/fideloper/proxy" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/guzzlehttp/psr7" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/jakub-onderka/php-console-color" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/jakub-onderka/php-console-highlighter" />
@@ -27,6 +33,7 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/namshi/jose" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/nunomaduro/collision" />
@@ -46,9 +53,11 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/phpunit/php-token-stream" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/psr/http-message" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/scrivo/highlight.php" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/sebastian/code-unit-reverse-lookup" />
@@ -77,8 +86,10 @@
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-iconv" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-php56" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/polyfill-util" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/server/vendor/symfony/service-contracts" />
