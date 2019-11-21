@@ -9,8 +9,6 @@ const Header = () => {
 
     const user = SessionHelper.userData();
 
-    console.log(user);
-
     return(
         <header className={'header'}>
             {/* header top area */}

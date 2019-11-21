@@ -5,6 +5,7 @@ import SingleUser from "./pages/SingleUser";
 import Users from "./pages/Users";
 import SessionHelper from "./helpers/SessionHelper";
 import Default from "./layouts/Default";
+import Error from "./layouts/Error";
 
 
 class App extends React.Component {
@@ -30,6 +31,9 @@ class App extends React.Component {
                       <Route exact path="/login" component={Login}/>
                   </div>
               : '' }
+
+              {/* Not found page */}
+              <Route path={'*'} component={Error}/>
           </Router>
       );
   }
