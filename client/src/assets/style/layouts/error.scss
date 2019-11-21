@@ -17,13 +17,7 @@
     background-image: url("/images/logo-big.svg");
 
     @include tabletLandscape{
-      width: calc(35% - 30px);
-      background-size: cover;
-      background-position: center center;
-    }
-
-    @include mobileLandscape{
-      width: 20%;
+      display: none;
     }
   }
 
@@ -33,20 +27,14 @@
     font-family: $open-sans-font;
 
     @include tabletLandscape{
-      width: calc(65% - 30px);
-    }
-
-    @include mobileLandscape{
-      margin: auto 0 0 35px;
-      width: calc(80% - 20px);
+      margin: auto;
       justify-content: center;
-    }
-
-    > * {
-      width: 90%;
+      width: calc(100% - 40px);
     }
 
     .error-value{
+      display: flex;
+      justify-content: center;
       font-size: rem-calc(144px);
       font-weight: bold;
       font-family: $lato-font;
@@ -60,9 +48,9 @@
       font-weight: bold;
 
       @include tabletLandscape{
-        font-size: 19px;
-        line-height: 28px;
+        text-align: center;
       }
+
     }
 
     .error-description{

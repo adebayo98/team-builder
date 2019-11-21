@@ -21,7 +21,12 @@ class App extends React.Component {
       return(
           <Router>
               {/* List of routes not need auth */}
-              { !this.state.isAuth ? <Route exact path="/" component={Login}/> : '' }
+              { !this.state.isAuth ?
+                  <div className={'lazy-wrapper-dft'}>
+                      <Route exact path="/" component={Login}/>
+                      <Route path={'*'} component={Error}/>
+                  </div>
+              : '' }
 
               {/* List of route which need auth */}
               { this.state.isAuth ?
@@ -29,11 +34,10 @@ class App extends React.Component {
                       <Route exact path="/" component={ () => <Default content={SessionHelper.hasRole('student') ? <SingleUser/> : <Users/>} /> }/>
                       <Route exact path="/profile" component={ () => <Default content={<SingleUser/>} /> }/>
                       <Route exact path="/login" component={Login}/>
+                      <Route path={'*'} component={Error}/>
                   </div>
               : '' }
 
-              {/* Not found page */}
-              <Route path={'*'} component={Error}/>
           </Router>
       );
   }
