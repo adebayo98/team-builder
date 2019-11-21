@@ -5,7 +5,9 @@ const Default = (props) => {
     return(
         <div className={'default-layout'}>
             <Header/>
-            {props.content}
+            <div className={'main-content'}>
+                {props.content}
+            </div>
         </div>
     );
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import SessionHelper from "./helpers/SessionHelper";
 import Login from './pages/Login';
 import SingleUser from "./pages/SingleUser";
 import Users from "./pages/Users";
-import SessionHelper from "./helpers/SessionHelper";
 import Default from "./layouts/Default";
-import Error from "./layouts/Error";
+import NotFound from "./pages/NotFound";
 
 
 class App extends React.Component {
@@ -21,23 +21,16 @@ class App extends React.Component {
       return(
           <Router>
               {/* List of routes not need auth */}
-              { !this.state.isAuth ?
-                  <div className={'lazy-wrapper-dft'}>
-                      <Route exact path="/" component={Login}/>
-                      <Route path={'*'} component={Error}/>
-                  </div>
-              : '' }
-
+              { !this.state.isAuth ?<Route exact path="/" component={Login}/> : '' }
               {/* List of route which need auth */}
               { this.state.isAuth ?
                   <div className={'lazy-wrapper-dft'}>
                       <Route exact path="/" component={ () => <Default content={SessionHelper.hasRole('student') ? <SingleUser/> : <Users/>} /> }/>
                       <Route exact path="/profile" component={ () => <Default content={<SingleUser/>} /> }/>
                       <Route exact path="/login" component={Login}/>
-                      <Route path={'*'} component={Error}/>
+                      <Route path={'*'} exact={true} component={NotFound}/>
                   </div>
               : '' }
-
           </Router>
       );
   }

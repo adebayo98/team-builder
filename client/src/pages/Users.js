@@ -1,9 +1,10 @@
 import React from 'react';
+import PageHead from "../components/PageHead";
 
 const Users = (props) => {
     return(
         <main className={'users-page'}>
-            <h1> This is a my pretty user page</h1>
+            <PageHead title={'Team Builder'}/>
         </main>
     )
 }

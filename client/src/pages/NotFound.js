@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Error = (props) => {
+const NotFound = () => {
     return(
         <section className={'error-layout'}>
             <aside className={'logo-container'}></aside>
@@ -16,4 +16,4 @@ const Error = (props) => {
     );
 }
 
-export default Error;
+export default NotFound;
