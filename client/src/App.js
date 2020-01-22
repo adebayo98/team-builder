@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SessionHelper from "./helpers/SessionHelper";
+import AppContext from './context/AppContext';
 import Login from './pages/Login';
 import SingleUser from "./pages/SingleUser";
 import Users from "./pages/Users";
