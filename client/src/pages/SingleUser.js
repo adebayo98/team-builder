@@ -3,6 +3,7 @@ import SessionHelper from "../helpers/SessionHelper";
 import PageHead from "../components/PageHead";
 import InputText from "../components/ui/InputText";
 import SkillCard from "../components/SkillCard";
+import ImageCard from "../components/ImageCard";
 
 const serverHost = 'http://hetic.adebayo.fr';
 
@@ -35,9 +36,10 @@ class SingleUser extends React.Component {
                 <section>
                     <h2>{user.first_name} {user.last_name}</h2>
 
-                    {/* {this.state.onEdit ? <SkillCard onEdit={this.state.onEdit} /> : ''}
+                    {this.state.onEdit ? <SkillCard onEdit={this.state.onEdit} /> : ''}
                     <SkillCard />
-                    <InputText /> */}
+                    <InputText />
+                    <ImageCard />
 
                     {/* Personal informations */ }
                     <div></div >
