@@ -1,0 +1,13 @@
+fieldset{
+  @extend %fieldset;
+
+  // Label
+  .label-input-text{
+    @extend %label;
+  }
+
+  // Input
+  .input-text-component{
+    @extend %default-ipt;
+  }
+}

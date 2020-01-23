@@ -28,6 +28,9 @@
 // G
 
 // H
+.hide{
+    display: none;
+}
 .hide-on-mobile-dft{
     @include mobileLandscape{
         display: none;

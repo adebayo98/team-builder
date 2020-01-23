@@ -31,11 +31,18 @@
     background: none;
 
     &::placeholder{
-
+        color: $black-3;
     }
 
     &:focus::placeholder{
       opacity: 0;
+    }
+
+    &:read-only{
+        border-bottom: none;
+        color: #343A40;
+        pointer-events: none;
+        cursor: default;
     }
 }
 
@@ -81,6 +88,9 @@
 // L
 %label{
     display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color: $black-3;
 }
 
 %legend{
