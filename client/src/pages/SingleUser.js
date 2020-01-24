@@ -29,17 +29,18 @@ class SingleUser extends React.Component {
 
         return(
             <main className = {'single-user-page'}>
+            
             {/* Header */ }
             <PageHead title = {'My profile'}/>
 
                 {/* Content */}
-                <section>
-                    <h2>{user.first_name} {user.last_name}</h2>
+                <section className="user">
+                    <h2 className={'user-name'}>{user.first_name} {user.last_name}</h2>
 
-                    {this.state.onEdit ? <SkillCard onEdit={this.state.onEdit} /> : ''}
+                    {/* {this.state.onEdit ? <SkillCard onEdit={this.state.onEdit} /> : ''}
                     <SkillCard />
                     <InputText />
-                    <ImageCard />
+                    <ImageCard /> */}
 
                     {/* Personal informations */ }
                     <div></div >
