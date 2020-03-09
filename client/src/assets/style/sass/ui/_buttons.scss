@@ -25,6 +25,8 @@
 // D
 %default-button{
     @extend %button;
+    border-radius: $border-radius;
+    background-color: $green-default;
 }
 
 // E

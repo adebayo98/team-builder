@@ -2,6 +2,7 @@ import React from 'react';
 import SessionHelper from "../helpers/SessionHelper";
 import PageHead from "../components/PageHead";
 import InputText from "../components/ui/InputText";
+import Textarea from "../components/ui/Textarea";
 import SkillCard from "../components/SkillCard";
 import ImageCard from "../components/ImageCard";
 
@@ -34,20 +35,40 @@ class SingleUser extends React.Component {
             <PageHead title = {'My profile'}/>
 
                 {/* Content */}
-                <section className="user">
+                <form className="user">
+
+                    {/* User name */}
                     <h2 className={'user-name'}>{user.first_name} {user.last_name}</h2>
 
-                    {/* {this.state.onEdit ? <SkillCard onEdit={this.state.onEdit} /> : ''}
-                    <SkillCard />
-                    <InputText />
-                    <ImageCard /> */}
+                    {/* USer informations */ }
+                    <div className={'user-informations'}>
+                        <h3>Personal informations</h3>
+                        <ImageCard />
+                        <div>
+                            <InputText />
+                            <InputText />
+                        </div>
+                        <div>
+                            <InputText />
+                            <InputText />
+                        </div>
+                        <Textarea />
+                    </div >
 
-                    {/* Personal informations */ }
-                    <div></div >
+                    {/* User skills */ }
+                    <div className={'user-skills'}>
+                        <h3>Competences</h3>
+                        <div className={'skills'}>
+                            {this.state.onEdit ? <SkillCard onEdit={this.state.onEdit} /> : ''}
+                            <SkillCard />
+                        </div>
+                    </div>
 
-                    {/* Skills */ }
-                    <div></div>
-                </section>
+                    {/* CTA */}
+                    <div className={"user-cta"}>
+                        <button className={'cta--submit'} type={'submit'}>Connexion</button>
+                    </div>
+                </form>
             </main >
         );
     }

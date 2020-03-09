@@ -9,5 +9,23 @@
             margin-top: 32px;
             text-align: center;
         }
+
+        // User informations
+        &-informations{
+
+        }
+
+        // User skilles
+        &-skills{
+
+        }
+
+        // User Cta
+        &-cta{
+            
+            button{
+                @extend %default-button;
+            }
+        }
     }
 }
